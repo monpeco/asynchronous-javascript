@@ -4,7 +4,7 @@
 
 ### Module 1 Intro
 
->! Missing video
+https://youtu.be/wfdxV6VDUtc
 
 > To introduce this module, I'm going to tell a story. This story is
 > going to explain what asynchronous programming, callback functions,
