@@ -16,4 +16,14 @@ function init(){
     
     var b = calculate(5, 10, sum);
     console.log("sum: " + b);
+    
+    //anonymous callback
+    var c = calculate(5, 10, function(x, y){
+        return x - y;
+    });
+    console.log("anonymous function: ", c);
+    
+    //arriow functions
+    var d = calculate(5, 10, (x,y) => { return y - x });
+    console.log("arrow functions: ", d);
 }

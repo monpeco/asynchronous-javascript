@@ -278,5 +278,31 @@ var b = calculate(10,5,mult); //uses mult callback
 console.log(b); // logs 50
 ```
 
+# Anonymous Callbacks
 
+Callbacks can be created and used without being bound to a specific function name. Anonymous callbacks are useful when a callback is only needed to be declared once, since they are quicker to write than named callbacks.
+
+Notice how an anonymous callback is used:
+
+
+```javascript
+var c = calculate(10,5,function(x,y){ //uses an anonymous callback
+    return x - y; //subtracts y from x
+});
+
+console.log(c); // logs 5
+```
+Notice how an anonymous callback is used with arrow functions:
+
+```javascript
+var d = calculate(10,5, (x,y) => {return x - y}); //using arrow functions
+
+console.log(d); // logs 5
+```
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Callback Functions   Examples of methods that use Callback Functions
+
+# Examples of methods that use Callback Functions
 
