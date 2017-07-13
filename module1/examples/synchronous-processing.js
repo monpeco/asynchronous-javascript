@@ -5,11 +5,11 @@ function slowTask(){
 
 
     console.log("slow task finished");
-};
+}
 
 function fastTask(){
     console.log("fast task finished")
-};
+}
 
 function init(){
 fastTask();
@@ -17,7 +17,7 @@ slowTask()
 fastTask();
 fastTask();
 fastTask();    
-};
+}
 
 
 /*  Console Output:

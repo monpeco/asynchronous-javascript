@@ -1,20 +1,20 @@
 function funcA(){
    funcB();  
-};
+}
 
 function funcB(){
    console.log(Error().stack); //Error is only used to show the call stack
    funcC();
-};
+}
 
 function funcC(){
     console.log("funcC");
-};
+}
 
 function init(){
     console.log("init function");
     funcA();   
-};
+}
 
 
 /*console output
