@@ -8,4 +8,11 @@ function init(){
     });
     
     console.log("NewArray: " + newArray);
+    
+    var otherArray = array.filter(function(x){
+        return x%2 == 0;
+    });
+    
+    console.log("otherArray: " + otherArray);
+
 }

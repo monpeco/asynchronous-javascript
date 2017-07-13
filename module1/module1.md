@@ -328,10 +328,28 @@ console.log(newArray);
 // logs [1,4,9,16,25]
 ```
 
+#### filter()
 
+The `filter()` method removes elements in an array that do not pass a certain criteria defined by a callback function.
+
+Notice how the `filter()` method is used to remove elements in an array that are not even:
 
 
 ```javascript
+var array = [1,2,3,4,5];
 
+function isEven(x){ //checks if a value is even
+   return x % 2 == 0; 
+}
+
+var newArray = array.filter(isEven); //uses a callback to check if an element is even
+
+console.log(newArray);
+// logs [2,4]
 ```
 
+---
+
+#### Module 1 - Asynchronous Fundamentals   Callback Functions   Chaining Callbacks
+
+# Chaining Callbacks
