@@ -306,3 +306,32 @@ console.log(d); // logs 5
 
 # Examples of methods that use Callback Functions
 
+### Callback Examples
+
+Several JavaScript functions already take in callbacks as arguments.
+
+#### map()
+
+The `map()` method calls a callback function on each element in the array and then returns a new array with those results.
+
+Notice how the `map()` method uses a callback function:
+
+
+```javascript
+var array = [1,2,3,4,5];
+
+var newArray = array.map(function(x){ //uses an anonymous callback function to square each element
+    return x * x;
+});
+
+console.log(newArray);
+// logs [1,4,9,16,25]
+```
+
+
+
+
+```javascript
+
+```
+
