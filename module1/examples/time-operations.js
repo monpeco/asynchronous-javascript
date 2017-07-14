@@ -15,6 +15,9 @@ function init(){
     var interval = setInterval(function(){
         count++;
         console.log(count);
+        if(count >= 3){
+            clearInterval(interval);
+        }
     },1000); //executes callback every second
     
     /* Console Output:

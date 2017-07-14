@@ -461,3 +461,33 @@ var interval = setInterval(function(){
 */
 ```
 
+### ClearInterval()
+
+The `clearInterval()` method is used to stop an interval timer set by `setInterval()`. The `setInterval()` method call returns a numeric 
+`timerID` that is used to identify the interval timer. This `timerID` can be passed into the `clearInterval()` method call to stop the 
+interval timer.
+
+Notice how `clearInterval()` is used to stop an interval from continuing after it executes three times:
+
+```javascript
+var count = 0;
+
+var interval = setInterval(function(){
+    count++;
+    console.log(count);
+    if(count >= 3){
+        clearInterval(interval); //clears the interval after it is called 3 times
+    }
+},1000); //executes callback every second
+
+/*Console Output
+  >1  <--after 1 second
+  >2  <--after 2 seconds
+  >3  <--after 3 seconds
+*/
+```
+---
+
+#### Module 1 - Asynchronous Fundamentals   Timers   Asynchronous Code using Timers
+
+# Asynchronous Code using Timers
