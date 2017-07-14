@@ -397,7 +397,7 @@ to chain callbacks together later in this course.
 
 #### Module 1 - Asynchronous Fundamentals   Timers   SetTimeout()
 
-# SetTimeout()
+### SetTimeout()
 
 The `setTimeout()` method is used to schedule a task to be put on the event queue after a given amount of time. The first parameter to 
 `setTimeout()` is the callback function that is going to be executed. The second parameter is the amount of time to wait before putting the 
@@ -415,3 +415,25 @@ setTimeout(function(){
    > "hello"  <--after 1 second
 /*
 ```
+### clearTimeout()
+
+The `clearTimeout()` function is used to cancel a timeout that is still pending. The `setTimeout()` method call returns a numeric `timerID` 
+that is used to identify the timer. This `timerID` can be passed into the `clearTimeout()` method call to stop the timer.
+
+Notice how `clearTimeout()` is used to stop a `setTimeout()` callback from executing:
+
+```javascript
+var timeout = setTimeout(function(){
+    console.log("hello")  
+},1000); //waits 1 second
+
+clearTimeout(timeout); //clears the setTimeout callback from running
+
+//nothing gets logged
+```
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Timers   SetInterval()
+
+### SetInterval()
