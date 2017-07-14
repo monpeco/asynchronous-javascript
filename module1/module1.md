@@ -437,3 +437,27 @@ clearTimeout(timeout); //clears the setTimeout callback from running
 #### Module 1 - Asynchronous Fundamentals   Timers   SetInterval()
 
 ### SetInterval()
+
+The `setInterval()` method is used to schedule a reoccurring task to be put on the event queue every time a given number of milliseconds 
+elapses. The first parameter to `setInterval()` is the callback function that is going to be executed. The second parameter is the amount 
+of time to wait before the reoccurring task is put back on to the event queue.
+
+Notice how the `setInterval()` method is used to log a number every second:
+
+```javascript
+var count = 0;
+
+var interval = setInterval(function(){
+    count++;
+    console.log(count);
+},1000); //executes callback every second
+
+/* Console Output:
+   > 1   <-- after 1 second
+   > 2   <-- after 2 seconds
+   > 3   <-- after 3 seconds
+   > 4   <-- after 4 seconds
+     ... <-- interval continues until stopped
+*/
+```
+
