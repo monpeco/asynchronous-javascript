@@ -392,3 +392,26 @@ to chain callbacks together later in this course.
 #### Module 1 - Asynchronous Fundamentals   Callback Functions   Code Demo
 
 # Code Demo
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Timers   SetTimeout()
+
+# SetTimeout()
+
+The `setTimeout()` method is used to schedule a task to be put on the event queue after a given amount of time. The first parameter to 
+`setTimeout()` is the callback function that is going to be executed. The second parameter is the amount of time to wait before putting the 
+task on the event queue. `setTimeout()` is non-blocking and other code may run while the `setTimeout()` task is waiting to be executed.
+
+Notice how setTimeout is used to schedule a console log after 1000 milliseconds:
+
+
+```javascript
+setTimeout(function(){
+    console.log("hello")  
+},1000); //waits 1 second
+
+/* Console Output:
+   > "hello"  <--after 1 second
+/*
+```
