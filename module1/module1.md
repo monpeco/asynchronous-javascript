@@ -491,3 +491,53 @@ var interval = setInterval(function(){
 #### Module 1 - Asynchronous Fundamentals   Timers   Asynchronous Code using Timers
 
 # Asynchronous Code using Timers
+
+Synchronous code is run line by line in the order in which the code occurred.
+
+Notice how synchronous code is executed:
+
+```javascript
+console.log("first");
+console.log("second");
+console.log("third");
+
+/*  Console Output:
+    > first
+    > second
+    > third
+*/
+```
+Asynchronous code may be executed in a different order than how it originally occurred. Asynchronous code is non-blocking and 
+will only run when the call stack is empty.
+
+Asynchronous code can be shown by using a `setTimeout()` method call with a timeout value of 0. This will immediately put a 
+task on the event queue.
+
+Notice how "second" is logged asynchronously and occurs out of order:
+
+```javascript
+function asyncLog(val){ //logs values asynchronously
+    setTimeout(function(){  //setTimeout with a time of 0 will execute asynchronously
+        console.log(val);      
+    },0)
+}
+
+console.log("first");
+asyncLog("second");
+console.log("third");
+
+/*  Console Output
+    > first
+    > third   <---notice this is out of order!!
+    > second  <---this occurs only after the call stack is empty, which is why it appears last
+
+*/
+```
+The output appears out of order because the asynchronous console log task had to wait for 
+the call stack to finish executing the other console logs before it could occur.
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Timers   Code Demo
+
+# Code Demo
