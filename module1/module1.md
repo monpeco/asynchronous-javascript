@@ -541,3 +541,120 @@ the call stack to finish executing the other console logs before it could occur.
 #### Module 1 - Asynchronous Fundamentals   Timers   Code Demo
 
 # Code Demo
+
+### Code Demo: SetTimeout and SetInterval
+
+[SetTimeout](https://youtu.be/Zfo70xXBaho)
+
+### Code Demo: Asynchronous Timers
+
+[SetTimeout](https://youtu.be/v_Sc58oRTBA)
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   DOM Events   Types of Events and Event Handlers
+
+# Types of Events and Event Handlers
+
+### DOM Events
+
+DOM Event Listeners happen in parallel with the JavaScript run time. When an event occurs, the event listener 
+detects the event and executes an event handler to put a task on the event queue. The task will eventually make 
+its way to the call stack to be executed.
+
+If multiple events are detected, multiple tasks will be put on the event queue in the order in which they 
+occurred. When the call stack is empty, the first task on the event queue is pushed onto the call stack. 
+When this task finishes, the cycle continues and the next task on the event queue is pushed onto the call 
+stack. Thus, if a certain task takes a long time to finish, the tasks behind it on the event queue will 
+have to wait.
+
+### Types of HTML DOM Events
+
+Here are some examples of HTML DOM Events:
+
+* Click Event - occurs when a user clicks a DOM element
+* Mouseenter Event - occurs when a pointer is moved over an element
+* Mouseleave Event - occurs when a pointer is moved out of an element
+* Keypress Event - occurs when a key is pressed
+
+### Referencing DOM Elements
+
+DOM elements can be referenced using the document.getElementById(id) method call if the DOM element has an id attribute defined.
+
+Notice how a HTML DOM element is referenced in JavaScript:
+
+HTML:
+```html
+<button id="myId">Button</button>
+```
+
+JavaScript:
+```javascript
+var button = document.getElementById('myId');
+```
+
+### addEventListener()
+
+The addEventListener(eventType,eventHandler) method call is used to add an event listener to a DOM object. The 
+eventType argument is a string that represents the type of event that is being listened for. The eventHandler 
+is a callback function that handles the event once it is detected.
+
+Notice how the document.getElementById() and addEventListener() method calls are used to reference a DOM element 
+and add an event listener to it.
+
+HTML:
+```html
+<button id="myId">Button</button>
+```
+
+JavaScript:
+```javascript
+document.getElementById('myId').addEventListener('eventType', function(){
+    //handle event here
+});  
+```
+### Event Attributes
+
+DOM elements have event attributes that can be used to handle events.
+
+Here are several of the attributes that can act as event attributes:
+
+* onclick - handles click events
+* onmouseover - handles mouseover events
+* onmouseleave - handles mouseleave events
+* onkeypress - handles keypress events
+
+The general format for the name of the event attributes is: "on" + "eventType". Event handler functions can be assigned to the event attributes to handle events.
+
+Notice how an event handler function is assigned to an event attribute:
+
+HTML:
+```html
+<button id="myId">Button</button>
+```
+
+JavaScript:
+```javascript
+document.getElementById('myId').oneventname = function(){
+    //do something
+}
+```
+The event attribute can also be assigned in the HTML code.
+
+Notice how the event attribute can be assigned in HTML:
+
+HTML:
+```html
+<button id="myId" oneventname = "eventHandler()" >Button</button>
+```
+
+JavaScript:
+```javascript
+function eventHandler(){
+    //do something
+}
+```
+
+#### Module 1 - Asynchronous Fundamentals   DOM Events   Handling Click Events
+
+# Handling Click Events
