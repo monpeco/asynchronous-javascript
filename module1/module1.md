@@ -597,7 +597,7 @@ var button = document.getElementById('myId');
 ### addEventListener()
 
 The `addEventListener(eventType,eventHandler)` method call is used to add an event listener to a DOM object. The 
-`eventType` argument is a string that represents the **type of event that is being listened for*. The `eventHandler` 
+`eventType` argument is a string that represents the **type of event that is being listened for**. The `eventHandler` 
 is a **callback function** that handles the event once it is detected.
 
 Notice how the `document.getElementById()` and `addEventListener()` method calls are used to reference a DOM element 
@@ -660,3 +660,21 @@ function eventHandler(){
 #### Module 1 - Asynchronous Fundamentals   DOM Events   Handling Click Events
 
 # Handling Click Events
+
+Notice how the `addEventListener()` function is used to add a click event handler to a button DOM element:
+
+HTML:
+```html
+<button id="mybutton">Click</button>
+```
+
+JavaScript:
+```javascript
+var value = 0;
+
+document.getElementById('myButton').addEventListener('click', function(){
+    value++;
+    document.getElementById('myButton').innerHTML = value;
+   //sets the HTML text inside the button to display the number of times it has been clicked
+});  
+```
