@@ -678,3 +678,45 @@ document.getElementById('myButton').addEventListener('click', function(){
    //sets the HTML text inside the button to display the number of times it has been clicked
 });  
 ```
+The above code adds a click event listener that increments the value variable every time 
+the button is clicked. The value of the value variable is then displayed inside the button.
+
+The click event can also be handled with an event attribute.
+
+Notice how an anonymous event handler is assigned to the `onclick` event attribute:
+
+JavaScript:
+```javascript
+var value = 0;
+
+document.getElementById('myButton').onclick = function(){
+    value++;
+    document.getElementById('myButton').innerHTML = value;
+   //sets the HTML text inside the button to display the number of times it has been clicked
+}
+```
+The click event can also be handled by defining the event attribute in HTML.
+
+Notice how the the `handleClick()` event handler is assigned to the `onclick` event 
+attribute in HTML:
+
+HTML:
+```html
+<button id="myButton" onclick = "handleClick()">click </button>
+```
+JavaScript:
+```javascript
+var value = 0;
+
+function handleClick(){
+    value++;
+    document.getElementById('myButton').innerHTML = value;
+    //sets the HTML text inside the button to display the number of times it has been clicked
+}
+```
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   DOM Events   Handling Keypress Events
+
+# Handling Keypress Events
