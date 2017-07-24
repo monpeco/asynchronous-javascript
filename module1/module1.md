@@ -579,7 +579,8 @@ Here are some examples of HTML DOM Events:
 
 ### Referencing DOM Elements
 
-DOM elements can be referenced using the document.getElementById(id) method call if the DOM element has an id attribute defined.
+DOM elements can be referenced using the `document.getElementById(id)` method call if the DOM element has an id 
+attribute defined.
 
 Notice how a HTML DOM element is referenced in JavaScript:
 
@@ -595,11 +596,11 @@ var button = document.getElementById('myId');
 
 ### addEventListener()
 
-The addEventListener(eventType,eventHandler) method call is used to add an event listener to a DOM object. The 
-eventType argument is a string that represents the type of event that is being listened for. The eventHandler 
-is a callback function that handles the event once it is detected.
+The `addEventListener(eventType,eventHandler)` method call is used to add an event listener to a DOM object. The 
+`eventType` argument is a string that represents the **type of event that is being listened for*. The `eventHandler` 
+is a **callback function** that handles the event once it is detected.
 
-Notice how the document.getElementById() and addEventListener() method calls are used to reference a DOM element 
+Notice how the `document.getElementById()` and `addEventListener()` method calls are used to reference a DOM element 
 and add an event listener to it.
 
 HTML:
@@ -624,7 +625,8 @@ Here are several of the attributes that can act as event attributes:
 * onmouseleave - handles mouseleave events
 * onkeypress - handles keypress events
 
-The general format for the name of the event attributes is: "on" + "eventType". Event handler functions can be assigned to the event attributes to handle events.
+The general format for the name of the event attributes is: `on` + `eventType`. **Event handler functions can be assigned to the event 
+attributes** to handle events.
 
 Notice how an event handler function is assigned to an event attribute:
 
