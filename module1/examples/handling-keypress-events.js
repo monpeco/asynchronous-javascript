@@ -19,6 +19,7 @@ function init(){
 
 // method 2: with onkeypress
 function handleKeyPress(event){
-         var keypressed = event.key;
-         document.getElementById("text").innerHTML = "Key Pressed: " + keypressed;
+    // also work with handleKeyPress()
+    var keypressed = event.key;
+    document.getElementById("text").innerHTML = "Key Pressed: " + keypressed;
 }
