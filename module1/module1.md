@@ -766,3 +766,15 @@ function handleKeyPress(event){
 #### Module 1 - Asynchronous Fundamentals   DOM Events   Code Demo
 
 # Code Demo
+
+### Code Demo: Handling Click Events
+https://youtu.be/gxoTLMjPji8
+
+### Code Demo: Handling Key Presses
+https://youtu.be/suT8-TtuTdY
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Module 1 Tutorial Lab: Memory Match   Tutorial 1 Intro Video
+
+# Tutorial 1 Intro Video
