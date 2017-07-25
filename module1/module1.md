@@ -720,3 +720,49 @@ function handleClick(){
 #### Module 1 - Asynchronous Fundamentals   DOM Events   Handling Keypress Events
 
 # Handling Keypress Events
+
+Notice how the `addEventListener()` method can be used to handle keypress events:
+
+HTML:
+```html
+<p id="text">Key Pressed: <p>
+```
+
+JavaScript:
+```javascript
+document.addEventListener('keypress',handleKeyPress);
+
+function handleKeyPress(event){
+    var keyPressed= event.key; //event.key contains the key that was pressed
+    document.getElementById("text").innerHTML = "Key Pressed: " +  keyPressed;
+    //sets the HTML text to display the key pressed
+} 
+```
+
+In the above code, an event listener is added directly to the document DOM element. 
+The document object is the root node where all of the other HTML elements stem from. 
+When a key is pressed, the key will be displayed in the paragraph element. The first 
+argument of the event handler will contain the Event object being handled. The key 
+attribute contains the value of the key that was last pressed.
+
+The keypress event can also be handled using an event attribute.
+
+Notice how the the handleKeyPress() event handler is assigned to the `onkeypress` event 
+attribute:
+
+JavaScript:
+```javascript
+document.onkeypress = handleKeyPress;
+
+function handleKeyPress(event){
+    var keyPressed= event.key; //event.key contains the key that was pressed
+    document.getElementById("text").innerHTML = "Key Pressed: " +  keyPressed;
+    //sets the HTML text to display the key pressed
+} 
+```
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   DOM Events   Code Demo
+
+# Code Demo
