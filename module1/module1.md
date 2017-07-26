@@ -811,3 +811,96 @@ memoryMatchStyle.css
 
 # Tutorial Lab: Memory Match
 
+To get started, create three files in the same directory:
+
+* **memoryMatch.html** - this will hold our HTML code
+* **memoryMatch.js** - this will hold our JavaScript code
+* **memoryMatchStyle.css** - this will hold our CSS code
+
+In Part 1 of the tutorial, we will build the following visual elements of our Memory Match game:
+
+* 3x3 grid of blue cells that are 100px by 100px in dimension
+* a restart button
+* a paragraph element to hold text
+
+In memoryMatch.html, enter the following code to get started:
+
+HTML:
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="memoryMatchStyle.css">
+    </head>
+    <body>
+
+
+        <script src="memoryMatch.js"></script> 
+    </body>
+</html>
+```
+The above code sets up the basic HTML structure and links the HTML to the CSS and JavaScript files in the directory.
+
+Next, add the following code in the body of the HTML file to add a table, a button, and a paragraph element to the application:
+
+HTML:
+```html
+    <table id="gridTable">
+        <tr>
+            <td id ="grid7"></td>
+            <td id ="grid8"></td> 
+            <td id ="grid9"></td>
+        </tr>
+        <tr>
+            <td id ="grid4"></td>
+            <td id ="grid5"></td> 
+            <td id ="grid6"></td>
+        </tr>
+        <tr>
+            <td id ="grid1"></td>
+            <td id ="grid2"></td> 
+            <td id ="grid3"></td>
+        </tr>
+    </table>
+
+    <button id="restart">restart</button>
+
+    <p id="timer"></p>
+```
+
+All of the HTML elements have id attributes so that we can refer to them later in our JavaScript code. The grid id's are out of order because we want the number pad values to match up with the grid locations.
+
+Next, in memoryMatchStyle.css, add the following code to make the table cells 100px by 100px and to make the table cell backgrounds blue:
+
+
+```css
+table, td {
+    border: 5px solid black;
+}
+
+td{
+    width:100px;
+    height:100px;
+    text-align:center;
+    background-color: blue;
+}
+```
+
+A 3x3 grid of blue cells should appear along with a restart button:
+
+![grid](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/fcee144192265ca93f01dd825b9f326e/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/part1-1img.PNG)
+
+Run the memoryMatch.html file in the browser to verify this.
+
+In Part 2, we will start writing JavaScript code to do the following:
+
+* randomly distribute the matching pairs of values among the cells
+* turn the blue cells orange when a mouse is hovering over
+* turn the blue cells red and reveal their hidden number when clicked
+* start the elapsed time counter when the first cell is clicked 
+* We will start by randomly distributing the matching pairs of values among the cells.
+
+To accomplish this, add the following code into memoryMatch.js:
+
+
