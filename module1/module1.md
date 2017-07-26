@@ -778,3 +778,36 @@ https://youtu.be/suT8-TtuTdY
 #### Module 1 - Asynchronous Fundamentals   Module 1 Tutorial Lab: Memory Match   Tutorial 1 Intro Video
 
 # Tutorial 1 Intro Video
+
+https://youtu.be/fQvjtzHy7Vc
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Module 1 Tutorial Lab: Memory Match   Tutorial 1 Guidelines
+
+# Tutorial 1 Guidelines
+
+The tutorial for this module is to create a Memory Match game using event-driven and asynchronous 
+programming.
+
+Demo Link: [Memory Match Demo](https://courses.edx.org/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/memoryMatch.html)
+
+To download the reference solutions you can right click the links below and press Save link as...
+
+Reference Solution:
+
+memoryMatch.html
+
+memoryMatch.js
+
+memoryMatchStyle.css
+
+![Memory Match Demo](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/0bac2166dec037e551fe40d47eed4ed6/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/memory_full_demo_2.gif)
+
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Module 1 Tutorial Lab: Memory Match   Tutorial Lab: Memory Match
+
+# Tutorial Lab: Memory Match
+
