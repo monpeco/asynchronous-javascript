@@ -46,6 +46,7 @@ function setup(){
             if (cell.clicked == false && cell.completed == false)
                 clickedArray.push(this);
                 reveal(this);
+                startTimer();
         });
     }
 }
@@ -56,3 +57,15 @@ function reveal(cell){
     cell.clicked = true;
     console.log("click" + clickedArray);
 }
+
+function startTimer(){
+    console.log("start");
+    if (started == false){
+        interval = setInterval(function(){
+            time++;
+            document.getElementById('timer').innerHTML = "Time elapsed: " + time;
+            console.log(time);
+        }, 1000);
+    }
+}
+
