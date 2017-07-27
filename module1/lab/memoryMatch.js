@@ -1,3 +1,6 @@
+//global variables
+var clickedArray = [];
+
 window.onload = init;
 
 function init(){
@@ -35,6 +38,18 @@ function setup(){
             if (this.completed == false && this.clicked == false)
                 this.style.background = 'blue';
         });
+        
+        cell.addEventListener('click', function(){
+            if (cell.clicked == false && cell.completed == false)
+                clickedArray.push(this);
+                reveal(this);
+        });
     }
 }
 
+function reveal(cell){
+    cell.style.background = "red";
+    cell.innerHTML = cell.value;
+    cell.clicked = true;
+    console.log("click" + clickedArray);
+}
