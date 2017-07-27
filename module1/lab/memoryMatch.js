@@ -25,6 +25,16 @@ function setup(){
         cell.clicked = false;
         cell.value = answer[i];
         console.log(cell.value);
-
+        
+        cell.addEventListener('mouseover', function(){
+            if (this.completed == false && this.clicked == false)
+                this.style.background = 'orange';
+        });
+        
+        cell.addEventListener('mouseleave', function(){
+            if (this.completed == false && this.clicked == false)
+                this.style.background = 'blue';
+        });
     }
 }
+
