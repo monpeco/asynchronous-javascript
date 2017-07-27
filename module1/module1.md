@@ -901,6 +901,59 @@ In Part 2, we will start writing JavaScript code to do the following:
 * start the elapsed time counter when the first cell is clicked 
 * We will start by randomly distributing the matching pairs of values among the cells.
 
-To accomplish this, add the following code into memoryMatch.js:
+To accomplish this, add the following code into **memoryMatch.js**:
 
+JavaScript:
+```javascript
+//global variables go here:
+
+
+//execute functions here:
+setUp();
+
+
+//function definitions go here:
+
+function randomAnswers(){
+    var answers = [1,1,2,2,3,3,4,4,5];
+    answers.sort(function(item){
+        return .5 - Math.random();
+    })
+    return answers;
+}
+
+function setUp(){
+    var grid = document.getElementsByTagName("td");
+    var answers = randomAnswers();
+
+    for(var i = 0; i < grid.length; i++){
+        var cell = grid[i];
+        cell.completed = false;
+        cell.clicked = false;
+        cell.value = answers[i];
+    }
+}
+```
+The above code has two defined functions:
+
+#### randomAnswers()
+
+This function returns an array that contains a scrambled list of values. There are exactly four pairs 
+of numbers (1,2,3 and 4) and one unpaired number (5) in the array. The values in the array are 
+scrambled by using the array.sort() method to sort the array in a pseudo random way.
+
+#### setUp() 
+
+The `setUp()` function is used to set up the cells to have event handlers and attributes. This 
+function initializes each of the cells in the grid to have the following attributes:
+
+* `cell.completed` - this attribute is a boolean that becomes true when a cell becomes "completed" because it has been matched with its matching pair. This attribute is initially set to false.
+* `cell.clicked` - this attribute is a boolean that tells whether or not a cell is currently clicked. This attribute is initially set to false.
+* `cell.value` - this attribute represents the hidden value of the cell. This attribute is initially set to a random value using the randomAnswers() function.
+
+The `setUp()` function has a for loop that iterates through all of the grid cells. We can use this for 
+loop to add event listeners to all of the cells in the grid.
+
+Next, we will add the following code at the bottom of the for loop within the `setUp()` function to add 
+event listeners to each of the cells:
 
