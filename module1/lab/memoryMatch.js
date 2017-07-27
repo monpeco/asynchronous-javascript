@@ -1,5 +1,8 @@
 //global variables
 var clickedArray = [];
+var interval;
+var started = false;
+var time = 0;
 
 window.onload = init;
 
