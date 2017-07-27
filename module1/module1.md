@@ -957,3 +957,70 @@ loop to add event listeners to all of the cells in the grid.
 Next, we will add the following code at the bottom of the for loop within the `setUp()` function to add 
 event listeners to each of the cells:
 
+JavaScript:
+```javascript
+    cell.addEventListener("mouseenter",function(){
+        if(this.completed == false && this.clicked == false)
+            this.style.background = "orange";
+    });
+
+    cell.addEventListener("mouseleave",function(){
+        if(this.completed == false && this.clicked == false)
+            this.style.background = "blue";
+    });
+
+    cell.addEventListener('click',function(){
+
+
+    });
+```
+
+The "mouseenter"event handler will cause the cells to turn orange when hovered over. The "mouseleave" event handler will allow the cells to return blue when they are not being hovered over.
+
+Open the memoryMatch.html file in the browser to verify this.
+
+![mouseover](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/d4ca9e995d1108b1a52ac430d79d7eba/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/part1-4img.PNG)
+
+Next, we will fill in the "click" event handler to make the blue cells turn red when clicked. The cells will also reveal their hidden values when clicked.
+
+To accomplish this we need to do several things:
+
+First, create a global variable named clickedArray and initialize it to an empty array. Make sure to 
+add it in the global variables section:
+
+JavaScript:
+```javascript
+var clickedArray = [];
+```
+
+The `clickedArray` global array is used to keep track of the clicked cells.
+
+Next, add the `reveal()` function to the code. The reveal() function will turn a cell's background red and will reveal its hidden value as well as set the cell's clicked attribute 
+to true. Make sure to add it in the function definitions section:
+
+JavaScript:
+```javascript
+function reveal(cell){
+    cell.style.backgroundColor = "red";
+    cell.innerHTML = cell.value;
+    cell.clicked = true;
+}
+```
+Next, add the following code inside the click event handler inside the for loop of the `setUp()` function:
+
+JavaScript:
+```javascript
+if(this.clicked == false && this.completed == false){
+    clickedArray.push(this);
+    reveal(this);
+}
+```
+
+The above code will check if a cell is not already clicked and is not already completed. If that is 
+the case, the code will add the cell to the clickedArray global array and will pass in the cell to 
+the reveal() function. This will reveal its hidden number and turn the cell red.
+
+Run the memoryMatch.html file in the browser to verify that you can turn all of the cells red and 
+reveal their hidden values by clicking on them:
+
+![reveal](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/e7218c6f7d8388fdc9601a511c6dbbdb/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/part1-2img.PNG)
