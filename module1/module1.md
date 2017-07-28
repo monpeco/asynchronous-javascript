@@ -1024,3 +1024,53 @@ Run the memoryMatch.html file in the browser to verify that you can turn all of 
 reveal their hidden values by clicking on them:
 
 ![reveal](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/e7218c6f7d8388fdc9601a511c6dbbdb/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/part1-2img.PNG)
+
+Next, we will trigger the elapsed time counter to start when the first cell is clicked.
+
+To accomplish this, we need to do several things:
+
+First, add the following global variables in the global variables section:
+
+JavaScript:
+```javascript
+var interval;
+var started = false;
+var time = 0;
+```
+The interval global variable was created so we can eventually stop the timer using a `clearInterval()` 
+method call. The started global variable is used so that we will only start the timer once. The time 
+global variable is used to keep track of the elapsed time.
+
+Next add the `startTimer()` function to the function definitions section:
+
+JavaScript:
+```javascript
+function startTimer(){
+    if (started == false){
+        interval = setInterval(function(){
+            time++;
+            document.getElementById("timer").innerHTML = "Time Elapsed: " + time;
+        },1000)
+        started = true;
+    }
+}
+```
+
+The `startTimer()` function will call a setInterval() method call that will increment the time global 
+variable and output the elapsed time to the paragraph element as text. The started global variable 
+will only allow the `setInterval()` method to be called once.
+
+Next, call the `startTimer()` method at the top of the click event handler:
+
+JavaScript:
+```javascript
+startTimer();
+```
+
+This will trigger the elapsed time counter once the first click occurs.
+
+Run the memoryMatch.html file in the browser to verify that the elapsed time counter starts running 
+once the first click occurs. Subsequent clicks should not restart the timer.
+
+![startTimer](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/ef2168338e06659b5c5843357bc1611b/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/part1-3img.PNG)
+
