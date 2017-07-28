@@ -3,6 +3,8 @@ var clickedArray = [];
 var interval;
 var started = false;
 var time = 0;
+var ready = true;
+var numCompleted = 0;
 
 window.onload = init;
 
@@ -43,10 +45,31 @@ function setup(){
         });
         
         cell.addEventListener('click', function(){
-            if (cell.clicked == false && cell.completed == false)
+            if (cell.clicked == false && cell.completed == false){
                 clickedArray.push(this);
                 reveal(this);
                 startTimer();
+            }
+            
+            if (clickedArray.length == 2){
+                if (clickedArray[0].value == clickedArray[1].value){
+                    //if matching pair is found
+                    complete(clickedArray[0]);
+                    complete(clickedArray[1]);
+                    clickedArray = [];
+                    if(numCompleted == 8){
+                        alert("you win in " + time + " seconds!");
+                        clearInterval(interval);
+                    }
+                }else{
+                    //if a matching pair is not found
+                    
+                    setTimeout(function(){
+                        //after 500ms delay
+                        
+                    },500);
+                }
+            }
         });
     }
 }
@@ -69,3 +92,14 @@ function startTimer(){
     }
 }
 
+function hide(cell){
+    cell.style.background = "blue";
+    cell.innerHTML = "";
+    cell.clicked = false;
+}
+
+function complete(cell){
+    numCompleted++;
+    cell.completed = true;
+    cell.style.background = "purple";
+}
