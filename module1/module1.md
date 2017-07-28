@@ -1074,3 +1074,45 @@ once the first click occurs. Subsequent clicks should not restart the timer.
 
 ![startTimer](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/ef2168338e06659b5c5843357bc1611b/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/part1-3img.PNG)
 
+In Part 3, we will write JavaScript code to do the following:
+
+* turn cells purple when a matching pair is found
+* turn cells blue again when a two cells are clicked and they are not a matching pair
+* make the border of the table to temporarily turn red when a non matching pair is found
+* end the game when four matching pairs are found
+* send an alert when the game ends telling the user how much time they took to complete the game
+* stop the elapsed time counter from counting when the game ends
+
+In order to accomplish these things, we need to do several things:
+
+First, add the following global variables:
+
+JavaScript:
+```javascript
+var ready = true;
+var numCompleted = 0;
+```
+
+The `ready` global variables indicates whether or not the application is able to handle click events. 
+The application will eventually be temporarily unable to handle click events when an incorrect match 
+attempt is made. The reason for this will be explained later.
+
+The `numCompleted` global variable keeps track of the number of cells that have been completed.
+
+Next, add the following function definitions in the function definitions section:
+
+JavaScript:
+```javascript
+function hide(cell){
+    cell.style.backgroundColor = "blue";
+    cell.innerHTML = "";
+    cell.clicked = false;
+}
+
+
+function complete(cell){
+    numCompleted++;
+    cell.completed = true;
+    cell.style.backgroundColor = "purple";
+}
+```
