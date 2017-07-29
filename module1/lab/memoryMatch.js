@@ -45,6 +45,9 @@ function setup(){
         });
         
         cell.addEventListener('click', function(){
+            if(ready == false)
+                return;
+                
             if (cell.clicked == false && cell.completed == false){
                 clickedArray.push(this);
                 reveal(this);
