@@ -66,10 +66,17 @@ function setup(){
                     }
                 }else{
                     //if a matching pair is not found
-                    
+                    ready = false;
+                    document.getElementById("gridTable").style.border = "5px solid red";
+
+                    console.log("rer");
                     setTimeout(function(){
                         //after 500ms delay
-                        
+                        hide(clickedArray[0]);
+                        hide(clickedArray[1]);
+                        clickedArray = [];
+                        ready = true;
+                        document.getElementById("gridTable").style.border = "5px solid black";
                     },500);
                 }
             }
