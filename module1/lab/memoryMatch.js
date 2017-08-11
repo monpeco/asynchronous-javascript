@@ -28,11 +28,11 @@ function setup(){
     
     for(var i = 0; i < grid.length; i++){
         var cell = grid[i];
-        console.log(cell);
+        //console.log(cell);
         cell.completed = false;
         cell.clicked = false;
         cell.value = answer[i];
-        console.log(cell.value);
+        //console.log(cell.value);
         
         cell.addEventListener('mouseover', function(){
             if (this.completed == false && this.clicked == false)
@@ -69,7 +69,7 @@ function setup(){
                     ready = false;
                     document.getElementById("gridTable").style.border = "5px solid red";
 
-                    console.log("rer");
+                    //console.log("rer");
                     setTimeout(function(){
                         //after 500ms delay
                         hide(clickedArray[0]);
@@ -88,7 +88,7 @@ function reveal(cell){
     cell.style.background = "red";
     cell.innerHTML = cell.value;
     cell.clicked = true;
-    console.log("click" + clickedArray);
+    //console.log("click" + clickedArray);
 }
 
 function startTimer(){
@@ -97,7 +97,7 @@ function startTimer(){
         interval = setInterval(function(){
             time++;
             document.getElementById('timer').innerHTML = "Time elapsed: " + time;
-            console.log(time);
+            //console.log(time);
         }, 1000);
     }
 }
