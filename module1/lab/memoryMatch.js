@@ -45,13 +45,14 @@ function setup(){
         });
         
         cell.addEventListener('click', function(){
+            startTimer();
             if(ready == false)
                 return;
                 
             if (cell.clicked == false && cell.completed == false){
                 clickedArray.push(this);
                 reveal(this);
-                startTimer();
+                
             }
             
             if (clickedArray.length == 2){
@@ -65,6 +66,7 @@ function setup(){
                         clearInterval(interval);
                     }
                 }else{
+                     console.log("if a matching pair is not found");
                     //if a matching pair is not found
                     ready = false;
                     document.getElementById("gridTable").style.border = "5px solid red";
@@ -94,6 +96,7 @@ function reveal(cell){
 function startTimer(){
     console.log("start");
     if (started == false){
+        console.log("if (started == false)");
         interval = setInterval(function(){
             time++;
             document.getElementById('timer').innerHTML = "Time elapsed: " + time;
