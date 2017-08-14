@@ -91,6 +91,10 @@ function setup(){
     }
 
     });
+    
+    document.getElementById('restart').addEventListener('click', function(){
+        location.reload();
+    });
 }
 
 function reveal(cell){
