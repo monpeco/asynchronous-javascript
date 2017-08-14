@@ -1116,3 +1116,100 @@ function complete(cell){
     cell.style.backgroundColor = "purple";
 }
 ```
+
+The `hide()` method reverts red cells back to blue cells and also hides their hidden number. It also sets the cell's clicked attribute to false so it can be clicked again in the future.
+
+the `complete()` method turns cells purple and sets their completed attribute to true. It also increments the numCompleted global variable.
+
+Next, add the following code at the bottom of the click event handler inside the for loop of the `setUp()` function:
+
+
+```javascript
+if(clickedArray.length == 2){
+
+    if(clickedArray[0].value == clickedArray[1].value){
+        //if a matching pair is found
+
+
+    }
+    else{
+        //if a matching pair is not found
+
+
+        setTimeout(function(){
+            //after a 500ms delay
+
+
+        },500);
+
+    }
+
+}
+```
+The above code is missing a few lines of that will be added soon. 
+
+When two cells have been clicked, the code will check if the cells have the same hidden value. If this is true, then a matching pair is found.
+
+Add the following code under the comment "if a matching pair is found":
+
+```javascript
+complete(clickedArray[0]);
+complete(clickedArray[1]);
+
+clickedArray = [];
+
+if(numCompleted == 8){
+    alert("You won in " + time + " seconds!");
+    clearInterval(interval);
+}
+```
+
+The above code will call the `complete()` method call with on each of the cells in the clickArray global array. This will turn the cells purple, make their completed attributes true, and increment the numCompleted global variable by 2 (+1 for each cell).  The clickedArray is then emptied so that it can be populated with new cells. If eight cells have been completed then the game ends and an alert pops up telling the user how many seconds have elapsed since they started playing. The interval timer then ceases to run because it has been cleared using the `clearInterval()` method call.
+
+If two cells are clicked and they do not have the same hidden value then non matching pair is found.
+
+Add the following code at the very top of the click event handler:
+
+```javascript
+if(ready == false)
+    return;
+```
+The above code will make the application unable to handle click events when the ready attribute is set to false.
+
+Add the following code under the comment "if a matching pair is not found":
+
+```javascript
+ready = false;
+document.getElementById("gridTable").style.border = "5px solid red";
+```
+In the above code, the ready global variable is set to false. The false ready global variable will make the application unable to handle click events. The above code also makes the border of the table red.
+
+The red border and the inability to handle click events will only last for 500 ms because a `setTimeout()` will schedule a function to undo these actions. The reason for the 500ms time duration is so that the users can have a bit of time to look at their incorrect hidden values. Without the 500ms time duration, the second incorrect hidden value would disappear immediately once it was clicked. The inability to handle click events is to prevent the users from clicking on additional cells while the incorrect values are being displayed.
+
+Next, add the following code under the comment "after a 500ms delay": 
+
+```javascript
+hide(clickedArray[0]);
+hide(clickedArray[1]);
+
+clickedArray = [];
+
+ready = true;
+document.getElementById("gridTable").style.border = "5px solid black";
+```
+
+The above code will call the hide() method call on each of the cells in the clickedArray global array. This will turn their cells blue again and will hide their hidden number. This will also set the their clicked attributes to true so that they can be clicked again in the future. The clickedArray global array is then emptied so that it can be populated with new cells in the future. Next, The ready attribute is then set to true so that the application can handle click events again after 500ms. Lastly, the table border is made black again.
+
+Run the **memoryMatch.html** file in the browser and verify that the following happen:
+
+* cells turn purple when a matching pair is found
+* cells turn blue again when a two cells are clicked and they are not a matching pair
+* the border of the table temporarily turns red when an incorrect match is found
+* the game ends when four matching pairs are found
+* when the game ends, an alert telling the user how much time they took to finish the game appears
+* when the game ends, the elapsed time counter stops counting
+
+![restart](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/e2a9308e9a672a18ed4c1fc0c6cc6d9e/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/memory_full_demo.gif)
+
+
+
