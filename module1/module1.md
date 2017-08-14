@@ -1211,5 +1211,38 @@ Run the **memoryMatch.html** file in the browser and verify that the following h
 
 ![restart](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/e2a9308e9a672a18ed4c1fc0c6cc6d9e/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/memory_full_demo.gif)
 
+In Part 4, we will write JavaScript code to do the following:
+
+trigger a tile to reveal itself by using the number pad
+restart the game using the restart button
+In order to accomplish these things, we need to do several things:
+
+Add the following code in the setUp() function:
+
+```javascript
+document.addEventListener('keydown', function(event){
+    if(event.key > 0 && event.key < 10 ){
+        grid[event.key - 1].click();
+    }
+
+});
+```
+The above code adds an event listener that handles "keydown" events. If a number is pressed, the event handler will trigger a click on a cell in the grid array corresponding to that number. After adding this code, the number pad or number row can be used to reveal the cells' hidden numbers. The number pad locations should line up exactly with the grid cell locations.
+
+Add the following code in the `setUp()` function:
 
 
+```javascript
+document.getElementById('restart').addEventListener('click', function(){
+    location.reload();
+});
+```
+The above code adds an event listener that handles "click" events on the restart button. When the restart button is clicked, the event handler triggers a reload of the page.
+
+Run the **memoryMatch.html** file in the browser and verify that the number pad can be used to reveal the cells' hidden numbers and that the restart button can be clicked to restart the game.
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Module 1 Assignment: Stop Watch   Assignment 1 Intro Video
+
+# Assignment 1 Intro Video
