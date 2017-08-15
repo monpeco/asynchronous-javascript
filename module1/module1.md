@@ -1246,3 +1246,25 @@ Run the **memoryMatch.html** file in the browser and verify that the number pad 
 #### Module 1 - Asynchronous Fundamentals   Module 1 Assignment: Stop Watch   Assignment 1 Intro Video
 
 # Assignment 1 Intro Video
+
+https://youtu.be/5s_AVrZnuIY
+
+> Hello. In this video I'll be introducing the assignment for this
+> module, which is to create a web, application of a stopwatch. The web
+> application to that three buttons labeled, Start/Stop, Reset and
+> Record Time. Pressing the Start/Stop button should start and stop the
+> stopwatch timer, which increases every hundredth of a second. Pressing
+> the record time should add the current timer value into the Past Times
+> section. And pressing the Reset button should reset the timer to 0,
+> and erase any previously recorded times in the Past Times section. In
+> addition, pressing the s key should start and stop to the stop watch,
+> pressing the t button should record times and pressing the r button
+> should reset the stopwatch. Please read the assignments guidelines
+> page for exact details on how the assignments will be graded. Good
+> luck and happy coding.
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Module 1 Assignment: Stop Watch   Assignment 1 Introduction
+
+# Assignment 1 Introduction
