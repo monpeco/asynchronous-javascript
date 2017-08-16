@@ -1268,3 +1268,31 @@ https://youtu.be/5s_AVrZnuIY
 #### Module 1 - Asynchronous Fundamentals   Module 1 Assignment: Stop Watch   Assignment 1 Introduction
 
 # Assignment 1 Introduction
+
+The assignment for this module is to create a stop watch web application that is able to keep track of the elapsed time and is also able to record time values.
+
+![assignment](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/a26f98a589b20c4eca75c8c958a62382/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/stopwatch_full_demo.gif)
+
+The user should see the following:
+
+* An application title labeled "Stopwatch Demo"
+* A section with a timer that displays the current elapsed time to the hundredth second
+* A button labeled "Start/Stop"
+* A button labeled "Reset" 
+* A button labeled "Record Time"
+* A section labeled "Past Times" that keeps a record of previously recorded times
+
+The user should be able to do the following:
+
+* Start and stop the timer by pressing the "Start/Stop" button.
+* Start and stop the timer by pressing the 's' key.
+* Record the current timer count into the Past Times section by pressing the "Record Time" button
+* Record the current timer count into the Past Times section by pressing the 't' key.
+* Reset the timer count to 0 and wipe all previously recorded times in the Past Times section by pressing the "Reset" button.
+* Reset the timer count to 0 and wipe all previously recorded times in the Past Times section by pressing the 'r' key.
+
+---
+
+#### Module 1 - Asynchronous Fundamentals   Module 1 Assignment: Stop Watch   Assignment 1 Submission Guidelines
+
+# Assignment 1 Submission Guidelines
