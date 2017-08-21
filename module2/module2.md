@@ -154,8 +154,70 @@ var secondPromise = Promise.resolve(firstPromise);
 
 ---
 
-#### Module 2 - Promises   Creating and Using Promises   Using Promises
-
 # Using Promises
 
+Using Promises with `Then()` and `Catch()`
 
+The `then()` and `catch()` methods are used to handle the results of `Promises` 
+once they have finished pending. The `then()` method is used to handle resolved 
+Promises while the `catch()` method is used to handle rejected Promises. Both of 
+the methods use callback functions. The callback functions should each have one argument representing the Promise result.
+
+Notice how the `then()` and `catch()` methods use callbacks to handle Promise results:
+
+```javascript
+var promise = new Promise(function(resolve, reject) {
+    //do stuff
+    var isSuccessful = true;
+    setTimeout(function(){ //asynchronously process after 5 seconds
+      if (isSuccessful) { //if everything is successful
+          resolve('success!');
+      }
+      else{               //if something went wrong
+          reject(Error("failure."))
+      }
+
+    },5000);
+
+
+});
+
+
+//promise status changes from pending to resolved after 5 seconds
+
+promise.then(function(val){//val represents the fulfillment value
+
+    console.log(val);//logs "success!" since promise resolved
+
+}).catch(function(val){//val represents the rejection value
+
+    console.log(val); //doesn't occur since promise never rejected
+
+});
+```
+
+### Using Promises with Then(onSuccess,onFailure)
+
+The `then()` method can be called with a success callback and a failure callback as an 
+alternative to using the `then()` and `catch()` methods. 
+
+Notice how the `then()` method is used with a success and failure callback to handle 
+promise results:
+
+```javascript
+promise.then(function(val){//success callback
+
+    console.log(val);
+
+},function(val){//rejection callback
+
+    console.log(val); 
+
+})
+```
+
+---
+
+#### Module 2 - Promises   Creating and Using Promises   Code Demo
+
+# Code Demo
