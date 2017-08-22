@@ -231,3 +231,60 @@ https://youtu.be/y7oI1wzni_8
 #### Module 2 - Promises   Chaining Promises   Transforming Values
 
 # Transforming Values
+
+### Calling return within then()
+
+Promise results can be transformed by calling the return statement within the 
+`then()` callback. This will cause the `then()` method to return a new Promise with the transformed result.
+
+Notice how a new Promise is created with a transformed result using the return 
+statement within the `then()` callback:
+
+```javascript
+var promise = Promise.resolve("hello");
+
+var promise2 = promise.then(function(result) { 
+    console.log(result) //logs "hello"
+    return result + " world" //adds " world" to the result and sets this as the new fulfillment value of promise2
+});
+
+promise2.then(function(result){
+    console.log(result); //logs "hello world"
+});
+```
+
+### Chaining Transforms
+
+Several transforms can be chained together using multiple then() method calls.
+
+Notice how promise results are transformed using multiple then() methods calls:
+
+```javascript
+var promise = Promise.resolve([1,2,3,4]);
+
+promise.then(function(result) { 
+    console.log(result) //logs [1,2,3,4] 
+    return result.map(x => x * x); //squares each value in the array
+
+}).then(function(result2){
+    console.log(result2) //logs [1,4,9,16]
+    return result2.filter( x => x > 10); //filters out elements that are not larger than 10
+
+}).then(function(result3){
+    console.log(result3) //logs [16]
+    return result3.toString() + "!!"; //converts result3 to a string and adds "!!"
+
+}).then(function(result4){
+    console.log(result4) //logs "16!!"
+    return result4;  //returns a promise with "16!!" as the fulfillment value
+
+}).catch(function(error){
+    console.log(error)
+});
+```
+
+---
+
+#### Module 2 - Promises   Chaining Promises   Sequencing Asynchronous Operations
+
+# Sequencing Asynchronous Operations
