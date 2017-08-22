@@ -221,3 +221,13 @@ promise.then(function(val){//success callback
 #### Module 2 - Promises   Creating and Using Promises   Code Demo
 
 # Code Demo
+
+### Code Demo: Creating and Using Promises
+
+https://youtu.be/y7oI1wzni_8
+
+---
+
+#### Module 2 - Promises   Chaining Promises   Transforming Values
+
+# Transforming Values
