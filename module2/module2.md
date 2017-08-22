@@ -425,3 +425,62 @@ Promises allow asynchronous operations to be chained in a much more maintainable
 #### Module 2 - Promises   Chaining Promises   Code Demo
 
 # Code Demo
+
+> missing video
+
+---
+
+### Module 2 - Promises   Handling Multiple Promises   Promise.all()
+
+# Promise.all()
+
+The `Promise.all()` method is used **to process multiple Promises at the same time**. The 
+method takes in an array of `Promises` and then waits for them to all to resolve. Once they 
+have all finished resolving, an array of results can be obtained by using the `then()` method. 
+If any of the `Promises` reject, then the `Promise.all()` method will return the first 
+rejected Promise.
+
+Notice how the `Promise.all()` method is used to handle multiple `Promises` at the same time:
+
+```javascript
+var promise1 = Promise.resolve('hello'); 
+var promise2 = Promise.resolve({age:2,height:188}) 
+var promise3 = 42; //normal values work with Promise.all() too
+
+
+Promise.all([promise1,promise2,promise3]).then(function(result) { 
+
+    console.log(result) //logs the array ["hello",{age:2,height:188},42]
+
+}).catch(function(error){
+
+    console.log(error) 
+
+});
+```
+
+Notice how `Promise.all()` method call rejects when one of the `Promises` that it is 
+processing rejects:
+
+```javascript
+var promise1 = Promise.resolve('hello'); 
+var promise2 = Promise.resolve({age:2,height:188}) 
+var promise3 = Promise.reject('failure.'); //rejected promise
+
+
+Promise.all([promise1,promise2,promise3]).then(function(result) { 
+
+    console.log(result) //doesn't occur since promise3 rejected
+
+}).catch(function(error){
+
+    console.log(error)  //logs 'failure.'
+
+});
+```
+
+---
+
+#### Module 2 - Promises   Handling Multiple Promises   Promise.race()
+
+# Promise.race()
