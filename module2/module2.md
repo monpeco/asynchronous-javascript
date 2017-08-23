@@ -554,3 +554,14 @@ Promise.race([promiseResolveTenSeconds,promiseRejectFiveSeconds]).then(function(
 #### Module 2 - Promises   Handling Multiple Promises   Code Demo
 
 # Code Demo
+
+### Code Demo: Promise.all() and Promise.race()
+
+Missing video
+
+---
+
+#### Module 2 - Promises   Module 2 Tutorial Lab: Product Catalog   Tutorial 2 Intro Video
+
+# Tutorial 2 Intro Video
+
