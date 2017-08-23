@@ -565,3 +565,25 @@ Missing video
 
 # Tutorial 2 Intro Video
 
+> Hello, in this video I will be introducing the tutorial lab for this
+> module, which is to create a product catalog web application using a
+> JavaScript library that returns promises. Let's start by looking at
+> how the completed application should function. At the top of the web
+> application there should be an input field and a search button that
+> allows users to search products by ID. If the user searches a product
+> by ID, the examined product section should show the products details.
+> The List of Similar Products table should also populate with items of
+> the same type, and are also within $50 of the examined item's price.
+> Lastly, there should be a list of all products at the bottom of the
+> page. Any product in either of the lists may be examined by clicking
+> on the Examine button, Which will repopulate the Examined Products
+> section and change the Similar Products table, too. This tutorial is
+> meant to teach you how to create and deal with functions that return
+> promises. Please read the tutorial pages for the exact details on how
+> to create the application. Good luck, and happy coding.
+
+---
+
+#### Module 2 - Promises   Module 2 Tutorial Lab: Product Catalog   Tutorial 2 Guidelines
+
+# Tutorial 2 Guidelines
