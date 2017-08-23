@@ -587,3 +587,28 @@ Missing video
 #### Module 2 - Promises   Module 2 Tutorial Lab: Product Catalog   Tutorial 2 Guidelines
 
 # Tutorial 2 Guidelines
+
+Tutorial Guidelines
+
+The tutorial for this module is to create a Product Catalog application using a library that returns JavaScript promises.
+
+Demo Link: [Product Catalog Demo](https://courses.edx.org/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/productCatalog.html)
+
+To download the reference solutions you can right click the links below and press Save link as...
+
+Reference Solution
+
+[productCatalog.html](https://courses.edx.org/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/productCatalog.html)
+
+[productCatalog.js](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/ad10823bbec043f81de413a3133530dd/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/productCatalog.js)
+
+[library.js](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/67d93409c685c527aba2fbb71c852e4e/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/library.js)
+
+
+![catalog](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/ff7f5b14c89655d466772d23f0bbf853/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/product_tutorial_demo.gif)
+
+---
+
+#### Module 2 - Promises   Module 2 Tutorial Lab: Product Catalog   Tutorial Lab: Product Catalog
+
+# Tutorial Lab: Product Catalog
