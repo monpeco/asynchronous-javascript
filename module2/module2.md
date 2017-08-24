@@ -612,3 +612,58 @@ Reference Solution
 #### Module 2 - Promises   Module 2 Tutorial Lab: Product Catalog   Tutorial Lab: Product Catalog
 
 # Tutorial Lab: Product Catalog
+
+To get started, create three files in the same directory:
+
+* **productCatalog.html** - this will hold our HTML code
+* **productCatalog.js** - this will hold our JavaScript code
+* **library.js** - this is a JavaScript library used to provide product information asynchronously using Promises
+
+In Part 1 of the tutorial, we will build a JavaScript library that is used to provide product information asynchronously using Promises. The library will have the following functions:
+
+* `searchProductsById(id)` - returns a Promise containing the product with the specified ID 
+* `searchProductsByType(type)` - returns a Promise containing an array of products with the specified type
+* `searchProductsByPrice(price,difference)` - returns a Promise containing an array of products that are within a certain amount of the specified price.
+* `searchAllProducts()` - returns a Promise containing an array of all the products in the catalog
+* `createRandomObject()` - a function used to create a random product ( this is not accessible outside of the library file)
+* `createRandomCatalog()` - a function used to create a catalog of random products ( this is not accessible outside of the library file)
+
+Add the following code into library.js, to get started: 
+
+```javascript
+(function(window){
+
+    function myLibrary(){
+
+        //execute code here
+
+        return {
+            searchProductById: searchProductById,
+            searchProductsByPrice: searchProductsByPrice,
+            searchProductsByType: searchProductsByType,
+            searchAllProducts: searchAllProducts
+        }
+
+        //function definitions go here
+
+
+    }
+
+
+    if(typeof(window.api) === 'undefined'){
+        window.api = myLibrary();
+    }
+
+})(window); 
+```
+
+The above code will create an object that has a couple of library functions as attributes. It will then assign the object 
+to the api global variable. After including the **library.js** file, the library functions can be accessed through the api 
+global variable. Here are some examples:
+
+```javascript
+var promise1 = api.searchAllProducts();
+var promise2 = api.searchProductById(42);
+var promise3 = api.searchProductsByPrice(200,25);
+var promise4 = api.searchProductsByType("Book");
+```
