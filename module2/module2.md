@@ -628,7 +628,7 @@ In Part 1 of the tutorial, we will build a JavaScript library that is used to pr
 * `createRandomObject()` - a function used to create a random product ( this is not accessible outside of the library file)
 * `createRandomCatalog()` - a function used to create a catalog of random products ( this is not accessible outside of the library file)
 
-Add the following code into library.js, to get started: 
+Add the following code into **library.js**, to get started: 
 
 ```javascript
 (function(window){
@@ -667,3 +667,20 @@ var promise2 = api.searchProductById(42);
 var promise3 = api.searchProductsByPrice(200,25);
 var promise4 = api.searchProductsByType("Book");
 ```
+
+Next, add the function definition for the `createRandomObject()` function:
+
+```javascript
+function createRandomProduct(){
+    var typeArray = ['Electronics','Book','Clothing','Food'];
+    var price = (Math.random()*500).toFixed(2) 
+    var type = typeArray[Math.floor(Math.random()*4)];
+
+    return {price:price, type:type};                
+}
+```
+
+The `createRandomObject()` function will create a product with a random type and price. The product type will be either 
+***Electronics***, ***Book***, ***Clothing*** or ***Food***. The product price will be between ***0*** and ***500***.
+
+
