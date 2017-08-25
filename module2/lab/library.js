@@ -29,6 +29,19 @@
             }
             return catalog;
         }
+        
+        function searchAllProducts(){
+            var promise = new Promise(function(resolve, reject) {
+        
+                setTimeout(function(){
+                    resolve(catalog);
+                },1000);
+        
+            });
+            return promise;
+        }
+
+
 
     }
 

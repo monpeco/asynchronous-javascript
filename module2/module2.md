@@ -699,4 +699,30 @@ function createRandomCatalog(num){
 The `createRandomCatalog()` function will return an array containing a specified number of randomized products. 
 Each product will have an `id`, `price`, and `type` attribute.
 
+Next, add the following code under the comment "execute code here":
+
+```javascript
+var catalog = createRandomCatalog(100);
+```
+
+This will create a variable named `catalog` that will contain a list of 100 random products. All of the library 
+functions will refer to catalog when they perform their product searches.
+
+Next, add the function definition for `searchAllProducts()`:
+
+```javascript
+function searchAllProducts(){
+    var promise = new Promise(function(resolve, reject) {
+
+        setTimeout(function(){
+            resolve(catalog);
+        },1000);
+
+    });
+    return promise;
+}
+```
+The `searchAllProducts()` function will return a Promise containing an array that has all of the 
+products in the catalog. The Promise will resolve in 1000ms after the function has executed.
+
 
