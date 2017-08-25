@@ -40,6 +40,24 @@
             });
             return promise;
         }
+        
+        function searchProductById(id){
+        
+            var promise = new Promise(function(resolve,reject){
+                var i = 0;
+                setTimeout(function(){
+                    while (i < catalog.length){
+                        if (catalog[i].id == id){                        
+                            resolve({id:id,price:catalog[i].price,type:catalog[i].type});
+                        }
+                        i++;
+                    }
+                    reject("Invalid ID: " + id);
+                },1000);
+            });
+            return promise;
+        }
+
 
 
 

@@ -722,7 +722,31 @@ function searchAllProducts(){
     return promise;
 }
 ```
-The `searchAllProducts()` function will return a Promise containing an array that has all of the 
-products in the catalog. The Promise will resolve in 1000ms after the function has executed.
+The `searchAllProducts()` function will return a **Promise** containing an array that has all of the 
+products in the catalog. The **Promise** will resolve in 1000ms after the function has executed.
 
+Next, add the function definition for `searchProductById(id)`:
+
+```javascript
+function searchProductById(id){
+
+    var promise = new Promise(function(resolve,reject){
+        var i = 0;
+        setTimeout(function(){
+            while (i < catalog.length){
+                if (catalog[i].id == id){                        
+                    resolve({id:id,price:catalog[i].price,type:catalog[i].type});
+                }
+                i++;
+            }
+            reject("Invalid ID: " + id);
+        },1000);
+    });
+    return promise;
+}
+```
+
+The `searchProductById(id)` function will search through the catalog array and return a **Promise**
+containing the product that matches the id argument. The Promise will resolve in 1000 millisecond 
+after the function has executed. The Promise will reject if an invalid id is searched.
 
