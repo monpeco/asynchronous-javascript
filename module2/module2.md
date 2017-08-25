@@ -683,4 +683,20 @@ function createRandomProduct(){
 The `createRandomObject()` function will create a product with a random type and price. The product type will be either 
 ***Electronics***, ***Book***, ***Clothing*** or ***Food***. The product price will be between ***0*** and ***500***.
 
+Next, add the function definition for the `createRandomCatalog()` function:
+
+```javascript
+function createRandomCatalog(num){
+    var catalog = [];
+    for (var i = 0; i < num; i++){
+        var obj = createRandomProduct();
+        catalog.push({id:i,price:obj.price,type:obj.type});
+    }
+    return catalog;
+}
+```
+
+The `createRandomCatalog()` function will return an array containing a specified number of randomized products. 
+Each product will have an `id`, `price`, and `type` attribute.
+
 
