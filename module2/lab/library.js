@@ -3,6 +3,7 @@
     function myLibrary(){
 
         //execute code here
+        var catalog = createRandomCatalog(100);
 
         return {
             searchProductById: searchProductById,
