@@ -58,7 +58,27 @@
             return promise;
         }
 
-
+        function searchProductsByPrice(price, difference){
+            var promise = new Promise(function(resolve, reject){
+                var i = 0;
+                var priceArray = [];
+                if(!isFinite(price)){
+                    reject("Invalid Price" + price);
+                }
+                else{
+                    setTimeout(function(){
+                        while(i < catalog.length){
+                            if(Math.abs(catalog[i].price - price) < difference){
+                                priceArray.push({id:catalog[i].id, price:catalog[i].price, type:catalog[i].type});
+                            }
+                            i++;
+                        }
+                        resolve(priceArray);
+                    }, 1000);
+                }
+            });
+            return promise;
+        }
 
 
     }

@@ -750,3 +750,33 @@ The `searchProductById(id)` function will search through the catalog array and r
 containing the product that matches the id argument. The Promise will resolve in 1000 millisecond 
 after the function has executed. The Promise will reject if an invalid id is searched.
 
+Next, add the function definition for `searchProductByPrice(price,difference)`:
+
+```javascript
+function searchProductsByPrice(price,difference){
+    var promise = new Promise(function(resolve,reject){
+        var i = 0;
+        var priceArray = [];
+        if(!isFinite(price)){
+            reject("Invalid Price: " + price)
+        }
+        else{
+            setTimeout(function(){
+                while (i < catalog.length){
+                    if (Math.abs(catalog[i].price - price) < difference){
+                        priceArray.push({id:catalog[i].id,price:catalog[i].price,type:catalog[i].type});
+                    }
+                    i++;
+                }
+                resolve(priceArray);
+            },1000);
+        }
+    });
+    return promise;
+}
+```
+
+The `searchProductByPrice(price,difference)` function will return a Promise containing an array of all of the 
+products that were within the specified difference of the specified price. The Promise will resolve in 1000 
+milliseconds after the function is executed. The Promise will reject if an invalid price is searched.
+
