@@ -780,3 +780,31 @@ The `searchProductByPrice(price,difference)` function will return a Promise cont
 products that were within the specified difference of the specified price. The Promise will resolve in 1000 
 milliseconds after the function is executed. The Promise will reject if an invalid price is searched.
 
+In Part 2 of the tutorial, we will build the following visual elements of our Product Catalog application:
+
+* A section labeled **"Search Product by Id"** that includes an input field and a button labeled "Search Product".
+* A section labeled **"Examined Product"** that shows the products id, price, and type.
+* A section labeled **"List of Similar Products"** that has a table that displays a list of similar products. 
+* A section labeled **"List of All Products"** that has a table that displays a list of all products.
+
+In `productCatalog.html`, add the following code to get started:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="library.js"></script> 
+        
+    </head>
+    <body>
+
+
+
+    <script src="productCatalog.js"></script> 
+    </body>
+</html>
+```
+
+The above code sets up the basic HTML structure and links the HTML to the `library.js` 
+and `productCatalog.js` files in the directory.
