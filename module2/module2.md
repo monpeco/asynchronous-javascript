@@ -848,5 +848,9 @@ The above code creates the following visual elements:
 * A section labeled "Search Product by Id" that includes an input field and a button labeled "Search Product".
 * A section labeled "Examined Product" that shows the products id, price, and type.
 * A section labeled "List of Similar Products" that has a table that displays a list of similar products. 
-*   A section labeled" List of All Products" that has a table that displays a list of all products.
+* A section labeled" List of All Products" that has a table that displays a list of all products.
+
+Run the `productCatalog.html` file in the browser to verify that the following sections appear:
+
+![productCatalog](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/56f40c549687da4b039211c4d3fc8d63/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img1-redo.PNG)
 
