@@ -808,3 +808,45 @@ In `productCatalog.html`, add the following code to get started:
 
 The above code sets up the basic HTML structure and links the HTML to the `library.js` 
 and `productCatalog.js` files in the directory.
+
+Next, add the following code into the body of the HTML file to add an input field, a search button, and a couple of tables to the application:
+
+```html
+<div>
+    <h3>Search Product by Id</h3>
+    <input id="input">
+    <button id="inputButton" >Search Product</button>
+</div>
+<div >
+    <h3>Examined Product</h3>
+    <p id="productText">Product Id: <br>Price: <br>Type: </p>
+    <h3>List of Similar Products</h3>
+    <table id="similarTable" width="300px" border="1" >
+    <tr>
+        <th>ProductId</th>
+        <th>Type</th> 
+        <th>Price</th>
+        <th>Examine</th>
+    </tr>
+    </table>
+</div>
+<div >
+<h3>List of All Products</h3>
+<table id="allTable" width="300px" border="1" >
+    <tr>
+        <th>ProductId</th>
+        <th>Type</th> 
+        <th>Price</th>
+        <th>Examine</th>
+    </tr>
+</table>
+</div>
+```
+
+The above code creates the following visual elements:
+
+* A section labeled "Search Product by Id" that includes an input field and a button labeled "Search Product".
+* A section labeled "Examined Product" that shows the products id, price, and type.
+* A section labeled "List of Similar Products" that has a table that displays a list of similar products. 
+*   A section labeled" List of All Products" that has a table that displays a list of all products.
+
