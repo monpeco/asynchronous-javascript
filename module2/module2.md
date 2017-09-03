@@ -854,3 +854,32 @@ Run the `productCatalog.html` file in the browser to verify that the following s
 
 ![productCatalog](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/56f40c549687da4b039211c4d3fc8d63/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img1-redo.PNG)
 
+In Part 3 of the tutorial, we will edit the JavaScript file `productCatalog.js` to do the following:
+
+* Populate the "List of All Products" table using the products obtained from the `library.js` functions.
+
+To accomplish this, we need to first create a function called `updateTable(tableId,productArray)` that helps us populate the table. 
+We also need to add a function called `createTableHeader(tableId)` that is used by `updateTable(tableId,productArray)` to create 
+table headers.
+
+Add the `createTableHeader(tableId)` function definition inside `productCatalog.js`:
+
+```javascript
+function createTableHeader(tableId){
+    var tableHeaderRow = document.createElement('TR');
+    var th1 = document.createElement('TH');
+    var th2 = document.createElement('TH');
+    var th3 = document.createElement('TH');
+    var th4 = document.createElement('TH');
+    th1.appendChild(document.createTextNode("ProductId"));
+    th2.appendChild(document.createTextNode("Type"));
+    th3.appendChild(document.createTextNode("Price"));
+    th4.appendChild(document.createTextNode("Examine"));
+    tableHeaderRow.appendChild(th1);
+    tableHeaderRow.appendChild(th2);
+    tableHeaderRow.appendChild(th3);
+    tableHeaderRow.appendChild(th4);
+    document.getElementById(tableId).appendChild(tableHeaderRow);
+}
+```
+
