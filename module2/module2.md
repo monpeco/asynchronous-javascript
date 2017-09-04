@@ -882,4 +882,43 @@ function createTableHeader(tableId){
     document.getElementById(tableId).appendChild(tableHeaderRow);
 }
 ```
+Add the `updateTable(tableId,productArray)` function definition inside `productCatalog.js`:
 
+```javascript
+function updateTable(tableId,productArray){
+    var tableBody = document.getElementById(tableId);
+    //reset table
+    while (tableBody.hasChildNodes()) {   
+        tableBody.removeChild(tableBody.firstChild);
+    }
+    //create table header
+    createTableHeader(tableId);
+    //populate table rows
+    for (i = 0; i < productArray.length; i++) {
+        var tr = document.createElement('TR');
+        var td1 = document.createElement('TD');
+        var td2 = document.createElement('TD');
+        var td3 = document.createElement('TD');
+        var td4 = document.createElement('button');
+
+        td4.addEventListener('click',function(){
+            
+        });
+        td1.appendChild(document.createTextNode(productArray[i].id));
+        td2.appendChild(document.createTextNode(productArray[i].type));
+        td3.appendChild(document.createTextNode(productArray[i].price));
+        td4.appendChild(document.createTextNode("Examine"));
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        tr.appendChild(td3);
+        tr.appendChild(td4);
+        tableBody.appendChild(tr);
+    }  
+}
+```
+
+The `updateTable(tableId,productArray)` function references the table element in the HTML 
+code using the `tableId` argument and dynamically adds rows to it. Each row will have a 
+`ProductId`, `Type`, `Price` and `Examine` column. The `ProductId`, `Type` and Price cells 
+are populated using the data in the `productArray` argument. The `Examine` section has an 
+`Examine` button that has a click event handler that will be filled out later in this tutorial.
