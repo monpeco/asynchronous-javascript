@@ -46,3 +46,6 @@ function updateTable(tableId,productArray){
     }  
 }
 
+api.searchAllProducts().then(function(value){
+    updateTable('allTable',value);
+});

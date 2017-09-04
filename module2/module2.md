@@ -922,3 +922,25 @@ code using the `tableId` argument and dynamically adds rows to it. Each row will
 `ProductId`, `Type`, `Price` and `Examine` column. The `ProductId`, `Type` and Price cells 
 are populated using the data in the `productArray` argument. The `Examine` section has an 
 `Examine` button that has a click event handler that will be filled out later in this tutorial.
+
+Next, we will use the library's `api.searchAllProducts()` method call to get a `Promise` 
+containing an array of all of the products in the catalog. We will then use the 
+`updateTable(tableId,productArray)` method to populate the **"List of All Products"** 
+table with the array of catalog products.
+
+To do this, add the following code inside `productCatalog.js`:
+
+```javascript
+api.searchAllProducts().then(function(value){
+    updateTable('allTable',value);
+});
+```
+
+The above code uses the `then()` method to extract the product catalog array and uses the 
+array to populate the **"List of All Products"** table.
+
+Please run the `productCatalog.html` file in the browser to verify that the **"List of All 
+Products"** table populates after 1000 milliseconds:
+
+![productCatalog](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/4b8cdaad56d2f66ede61b31f711d3c83/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img2.PNG)
+
