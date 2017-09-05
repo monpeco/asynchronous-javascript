@@ -996,3 +996,42 @@ function getIntersection(arrA,arrB,searchedId){
 The `getIntersection(arrA,arrB,searchedId)` function will be used to get the intersection of the similarly priced 
 and similarly typed arrays. The `searchedId` argument is used to exclude the examined product from the intersection 
 because the original product should not show up in its own similar products list.
+
+Next, add the `processSearch(searchId)` function definition:
+
+```javascript
+function processSearch(searchId){
+    api.searchProductById(searchId).then(function(val){
+        return Promise.all([api.searchProductsByPrice(val.price,50),api.searchProductsByType(val.type),val]);
+    }).then(function(val){
+        var similarArray = getIntersection(val[0],val[1],val[2].id);
+        updateExaminedText(val[2]);
+        updateTable('similarTable',similarArray);
+    }).catch(function(val){
+        alert(val);
+    });
+}
+```
+
+The `processSearch(searchId)` function starts by using the `api.searchProductById(searchId)` library function to get a `Promise` 
+containing the searched product. Once the Promise resolves, the promise then chains on an additional asynchronous operation 
+by returning the `Promise.all()` method call. The Promise.all() method call is used to process three different values:
+
+The `processSearch(searchId)` function starts by using the `api.searchProductById(searchId)` library function to get a Promise containing the searched product. Once the Promise resolves, the promise then chains on an additional asynchronous operation by returning the Promise.all() method call. The Promise.all() method call is used to process three different values:
+
+* a Promise returned by api.searchProductByPrice(val.price,50)
+* a Promise returned by api.searchProductByType(val.type)
+* the originally searched product represented by the val variable
+
+The `Promise.all()` method call returns a Promise containing an array that has a list of similarly priced products, a 
+list of similarly typed products and the originally searched product. The `getIntersection()` method call is used to get the 
+intersection of the similarly priced and similarly typed products while omitting the originally searched product from the 
+intersection results.
+
+Next, the "Examined Product" section is populated using the `updateExaminedText()` method with the originally searched 
+product passed in as the argument.
+
+Next, the "List of Similar Products" table is populated using the `updateTable()` method with the similar table id and the 
+intersection array passed in as arguments.
+
+Lastly, if an invalid id is searched, an error alert will appear.
