@@ -53,6 +53,22 @@ function updateExaminedText(product){
     document.getElementById("productText").innerHTML = outputString;
 }
 
+function getIntersection(arrA,arrB,searchedId){
+
+    var samePrice = arrA;
+    var sameType = arrB;
+    var similarArray = [];
+    samePrice.forEach(function(obj1){
+        sameType.forEach(function(obj2){
+            if(obj1.id == obj2.id && obj1.id != searchedId)
+                similarArray.push(obj1);     
+        });
+    });
+
+    return similarArray;
+
+}
+
 api.searchAllProducts().then(function(value){
     updateTable('allTable',value);
 });

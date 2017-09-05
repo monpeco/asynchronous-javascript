@@ -972,3 +972,27 @@ and are also within $50 of the examined product's price.
 Thus, we can get an array of these similar products by using the `api.searchProductByType(type)` and 
 `api.searchProductByPrice(price,difference)` library functions and getting the intersection of the two arrays that 
 are returned.
+
+Next, add the `getIntersection(arrA,arrB,searchedId)` function definition:
+
+```javascript
+function getIntersection(arrA,arrB,searchedId){
+
+    var samePrice = arrA;
+    var sameType = arrB;
+    var similarArray = [];
+    samePrice.forEach(function(obj1){
+        sameType.forEach(function(obj2){
+            if(obj1.id == obj2.id && obj1.id != searchedId)
+                similarArray.push(obj1);     
+        });
+    });
+
+    return similarArray;
+
+}
+```
+
+The `getIntersection(arrA,arrB,searchedId)` function will be used to get the intersection of the similarly priced 
+and similarly typed arrays. The `searchedId` argument is used to exclude the examined product from the intersection 
+because the original product should not show up in its own similar products list.
