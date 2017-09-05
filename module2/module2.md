@@ -944,3 +944,31 @@ Products"** table populates after 1000 milliseconds:
 
 ![productCatalog](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/4b8cdaad56d2f66ede61b31f711d3c83/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img2.PNG)
 
+In Part 4 of the tutorial, we will edit the JavaScript file productCatalog.js to do the following:
+
+* Populate the **"Examined Product"** section when a product id is searched or when an Examine Button is pressed
+* Populate the **"List of Similar Products"** with products similar to the searched/examined product when a product `id` is searched or when an Examine button is pressed.
+
+To accomplish this, we need to first create a function called `updateExaminedText(product)` to help us populate the 
+**"Examined Product"** section.
+
+Add the `updateExaminedText(product)` function definition inside `productCatalog.js`: 
+
+```javascript
+function updateExaminedText(product){
+    var outputString = "Product Id: " + product.id;
+    outputString += "<br> Price: " + product.price;
+    outputString += "<br> Type: " + product.type;
+    document.getElementById("productText").innerHTML = outputString;
+}
+```
+
+The `updateExaminedText(product)` function edits the the HTML in the **"Examined Product"** section and fills it with 
+the attributes of the product argument.
+
+The **"List of Similar Products"** table is populated with products that have the same type as the examined product 
+and are also within $50 of the examined product's price.
+
+Thus, we can get an array of these similar products by using the `api.searchProductByType(type)` and 
+`api.searchProductByPrice(price,difference)` library functions and getting the intersection of the two arrays that 
+are returned.

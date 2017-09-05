@@ -46,6 +46,14 @@ function updateTable(tableId,productArray){
     }  
 }
 
+function updateExaminedText(product){
+    var outputString = "Product Id: " + product.id;
+    outputString += "<br> Price: " + product.price;
+    outputString += "<br> Type: " + product.type;
+    document.getElementById("productText").innerHTML = outputString;
+}
+
 api.searchAllProducts().then(function(value){
     updateTable('allTable',value);
 });
+
