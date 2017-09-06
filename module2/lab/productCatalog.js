@@ -32,7 +32,7 @@ function updateTable(tableId,productArray){
         var td4 = document.createElement('button');
 
         td4.addEventListener('click',function(){
-            
+            processSearch(this.parentNode.firstChild.innerHTML);
         });
         td1.appendChild(document.createTextNode(productArray[i].id));
         td2.appendChild(document.createTextNode(productArray[i].type));

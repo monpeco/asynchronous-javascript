@@ -1049,3 +1049,18 @@ document.getElementById("inputButton").addEventListener('click',function(){
 The above code adds a click event handler to the search button. The click event handler executes the `processSearch()` method with 
 the input field value passed in as an argument.
 
+Next, add the following call to `processSearch()` inside the click event handler inside the `updateTable()` function definition:
+
+```javascript
+processSearch(this.parentNode.firstChild.innerHTML);
+```
+
+The above code will execute a `processSearch()` method call when an Examine button is pressed inside any of the tables' rows.
+
+Run the `productCatalog.html` file in the browser to verify that the following features work:
+
+The "Examined Product" section populates when a product id is searched or when an Examine Button is pressed
+The "List of Similar Products" table populates with products similar to the searched/examined product when a product id is 
+searched or when an Examine button is pressed.
+
+
