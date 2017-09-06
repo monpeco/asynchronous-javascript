@@ -82,6 +82,10 @@ function processSearch(searchId){
 }
 
 
+document.getElementById("inputButton").addEventListener('click',function(){
+    processSearch(document.getElementById('input').value);
+});
+
 api.searchAllProducts().then(function(value){
     updateTable('allTable',value);
 });

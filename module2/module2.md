@@ -1035,3 +1035,17 @@ Next, the "List of Similar Products" table is populated using the `updateTable()
 intersection array passed in as arguments.
 
 Lastly, if an invalid id is searched, an error alert will appear.
+
+Now, that the `processSearch()` function is defined, we can use it in our code to update the "Examined Products" section and "List of Similar Products" table.
+
+Next, add a click event handler for the search button:
+
+```javascript
+document.getElementById("inputButton").addEventListener('click',function(){
+    processSearch(document.getElementById('input').value);
+});
+```
+
+The above code adds a click event handler to the search button. The click event handler executes the `processSearch()` method with 
+the input field value passed in as an argument.
+
