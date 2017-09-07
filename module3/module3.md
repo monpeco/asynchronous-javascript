@@ -52,3 +52,75 @@ What are we going to learn?
 #### Module 3 - Fetch API   Basic Fetch Usage   Basic Fetch Usage
 
 # Basic Fetch Usage
+
+Notice how a `fetch()` method is used to make a simple network request:
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+.then(function(result){
+    return result.json();
+})
+.then(function(result){
+    console.log(result);
+    //logs Object {completed: false, id: 1, title: "delectus aut autem", userId: 1}
+})
+.catch(function{
+    console.log(err);
+});
+```
+
+### Fetch(url)
+
+The `fetch()` method takes in an URL endpoint and is used to make a network request. The `fetch()` method returns a `Promise` 
+that contains a **Response** object.
+
+Notice how the `fetch()` method returns a `Promise` that contains a **Response** object:
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/todos/1") //fetch() method used with an URL endpoint
+    .then(function(result){ //result contains a Response object
+         
+});
+```
+
+### Extracting data from a Response object:
+
+A **Response** object has several methods that are used to extract the fetched data.
+
+Here are the common extraction methods:
+
+* `json()` is used to extract a json object
+* `text()` is used to extract a text string
+* `blob()` is used to extract a file-like object
+
+Notice how the `json()` method is used to extract a `JSONobject`:
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/todos/1") 
+    .then(function(result){ 
+       return result.json() //returns a promise containing the JSON data extracted from the Response object
+    })
+    .then(function(result){
+       console.log(result);
+       //logs Object {completed: false, id: 1, title: "delectus aut autem", userId: 1}
+});
+```
+
+Notice how the `text()` method is used to extract a text string:
+
+```javascript
+fetch("https://jsonplaceholder.typicode.com/todos/1") 
+    .then(function(result){ 
+       return result.text() //returns a promise containing the text data extracted from the Response object
+    })
+    .then(function(result){
+       console.log(result);
+       //logs "{completed: false, id: 1, title: "delectus aut autem", userId: 1}"
+});
+```
+
+---
+
+#### Module 3 - Fetch API   Basic Fetch Usage   Handling Fetch Responses
+
+# Handling Fetch Responses
