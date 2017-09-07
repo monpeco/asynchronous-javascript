@@ -1063,4 +1063,4 @@ The "Examined Product" section populates when a product id is searched or when a
 The "List of Similar Products" table populates with products similar to the searched/examined product when a product id is 
 searched or when an Examine button is pressed.
 
-
+![productCatalog](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/7df17b0acf0a4409464456dd1be5bff1/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img3.PNG)
