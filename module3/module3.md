@@ -158,3 +158,11 @@ fetch("https://jsonplaceholder.typicode.com/bad_url/1")
 #### Module 3 - Fetch API   Basic Fetch Usage   Code Demo
 
 # Code Demo: Basic Fetch Usage
+
+https://youtu.be/pEkuJm5PDeU
+
+---
+
+#### Module 3 - Fetch API   Customizing Fetch Settings   Init Object
+
+# Init Object
