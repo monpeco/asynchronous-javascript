@@ -2,7 +2,7 @@
 
 # Intro to Fetch Video
 
-missing video
+https://youtu.be/BdnKo5LundE
 
 > Hello, in this video I will be introducing the topic of the Fetch API
 > and will be giving an overview on what will be covered in this module.
