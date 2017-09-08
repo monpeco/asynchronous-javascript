@@ -124,3 +124,37 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
 #### Module 3 - Fetch API   Basic Fetch Usage   Handling Fetch Responses
 
 # Handling Fetch Responses
+
+Checking the Response Status
+
+It is important to check the status of the Response object that is fetched. A status between 200-299 means that the request was somewhat successful while statuses in the 400s or 500s mean that problems have occurred. 
+
+Notice how the status of a bad Response object is checked before handling the response:
+
+```javascript
+//fetching a bad url
+fetch("https://jsonplaceholder.typicode.com/bad_url/1")
+.then(function(result){ //contains a Response object
+    console.log(result);
+    if(result.ok){ //returns true if the Response status is within 200-299
+        return result.text(); 
+    }
+    else{ //if the fetch request had problems
+        console.log(result.status) //logs 404
+        return Promise.reject(result.status); //returns a rejected promise if the fetch request had problems
+    }
+
+})
+.then(function(result){
+    console.log(result); //doesn't occur since a rejected promise was returned earlier
+})
+.catch(function(err){
+    console.log("Error: " +  err); //logs "Error: 404", handles the rejected promise
+})
+```
+
+---
+
+#### Module 3 - Fetch API   Basic Fetch Usage   Code Demo
+
+# Code Demo: Basic Fetch Usage
