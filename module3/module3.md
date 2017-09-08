@@ -166,3 +166,136 @@ https://youtu.be/pEkuJm5PDeU
 #### Module 3 - Fetch API   Customizing Fetch Settings   Init Object
 
 # Init Object
+
+The `fetch()` method can also take in an optional **init object**. This object applies custom settings to the Fetch request.
+
+Notice how the `fetch()` method is used with an URL endpoint and an init object:
+
+```javascript
+//this init object specifies the method, headers, mode and body of the request
+var initObject = {
+    method: 'POST',
+    headers: new Headers(),
+    mode: 'cors',
+    body: "{}" 
+}
+
+//fetch() method used with an URL endpoint and an init object
+fetch("https://jsonplaceholder.typicode.com/posts",initObject) 
+    .then(function(result){ //result contains a Response object
+       return result.json() //returns a promise containing JSON data extracted from the Response object
+
+    })
+    .then(function(result){
+       console.log(result);
+       //logs Object {id: 101}
+
+    })
+    .catch(function(err){
+        console.log(err);
+});
+```
+
+The following attributes of the init object will be covered in more detail in the next few sections:
+
+* method
+* body
+* headers
+* mode
+
+---
+
+#### Module 3 - Fetch API   Customizing Fetch Settings   Method and Body Attributes
+
+# Method and Body Attributes
+
+**Method**
+
+The method attribute is a string that is used to specify the HTTP request method type. 
+
+Here is a list of some commonly used method types:
+
+* `Get` - used to retrieve an existing data resource
+* `Head` - used to retrieve HTTP headers
+* `Post` - used to create a new data resource
+* `Put` - used to create a new data resource or modify an existing data resource
+* `Delete` - used to delete a data resource
+
+Notice how an init object with a method attribute of "Post" can be created:
+
+```javascript
+var initObject = {
+    method: 'POST'
+}
+```
+**Body**
+
+The body attribute is a JSON string used to send data along with a fetch request. If the body value is an object, 
+it is important to stringify the object that is being sent using `JSON.stringify()` or it will not process correctly.
+***Get and Head HTTP requests can not have bodies***.
+
+Notice how an init object with a body attribute representing an object can be created:
+
+```javascript
+var myBody = {
+    id: 12345,
+    name: 'abc',
+    age: 21
+}
+
+var initObject = {
+    body: JSON.stringify(myBody)
+}
+```
+---
+
+#### Module 3 - Fetch API   Customizing Fetch Settings   Headers and Mode
+
+# Headers and Mode
+
+**Headers**
+
+The headers attribute is used to add more information about the resource being fetched or the client doing the fetching. 
+A Headers object can be created using the `new Headers()` constructor and individual headers can be added to the `Headers` 
+object through the `append()` method.
+
+Notice how a new Headers object is created and assigned to the headers attribute of the init object:
+
+```javascript
+var myHeaders = new Headers();
+myHeaders.append('Content-Type', 'application/json');
+
+var initObject = {
+    headers: myHeaders
+}
+```
+Mode
+
+The mode attribute is a string that is used to determine whether or not the Fetch request can fetch resources from different servers.
+
+In this course we will cover the following two mode types:
+
+* `same-origin` - the Fetch request can only fetch resources from the same server
+* `cors (cross origin HTTP request)` - the Fetch request can fetch resources from different servers
+
+Notice how an init object is created with a mode attribute set to `'cors'`:
+
+```javascript
+var initObject = {
+    mode: 'cors'
+}
+```
+---
+
+#### Module 3 - Fetch API   Customizing Fetch Settings   Code Demo
+
+# Code Demo: Customizing Fetch Settings
+
+Missing video
+
+---
+
+#### Module 3 - Fetch API   Using Fetch with Requests   Using Fetch with Requests
+
+# Using Fetch with Requests
+
