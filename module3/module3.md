@@ -299,3 +299,38 @@ Missing video
 
 # Using Fetch with Requests
 
+The `fetch()` method can take in a `Request` object instead of an URL and an init object. The Request constructor 
+takes in the same parameters as the `fetch()` method, an URL and an optional init object. Request objects are used 
+because they make Fetch requests a bit cleaner and also offer a bit more control.
+
+Notice how a Request object is created and used with a fetch() method call:
+
+```javascript
+//this init object specifies the method, headers, mode and body of the request
+var initObject = {
+    method: 'POST',
+    headers: new Headers(),
+    mode: 'cors',
+    body: "{}" 
+}
+
+//creates a new request object using an URL and an init object
+var request = new Request("https://jsonplaceholder.typicode.com/posts",initObject)
+
+//fetch() method used with a request
+fetch(request).then(function(result){ //result contains a Response object
+    return result.json() 
+    //returns a Promise containing JSON data extracted from the Response object
+}).then(function(result){
+    console.log(result);
+    //logs Object {id: 101}
+}).catch(function(err){
+    console.log(err);
+});
+```
+
+---
+
+#### Module 3 - Fetch API   Using Fetch with Requests   Reusing Requests
+
+# Reusing Requests
