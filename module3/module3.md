@@ -334,3 +334,63 @@ fetch(request).then(function(result){ //result contains a Response object
 #### Module 3 - Fetch API   Using Fetch with Requests   Reusing Requests
 
 # Reusing Requests
+
+### Requests with Bodies(POST, PUT)
+
+If a Request object is used more than once in a Fetch request that involves bodies (POST, PUT) it will throw an error.
+
+Notice how an error is thrown if a Request object is fetched again after being previously used in a POST request:
+
+```javascript
+var initObject = {
+    method: 'POST',
+    headers: new Headers(),
+    mode: 'cors',
+    body: "{}" 
+}
+
+var request = new Request("https://jsonplaceholder.typicode.com/posts",initObject)
+
+//first time using Request object
+fetch(request).then(function(result){  
+    return result.json() 
+}).then(function(result){
+    console.log(result);
+    //logs Object {id: 101}
+}).catch(function(err){
+    console.log(err);
+});
+
+
+
+//second time using Request object
+fetch(request).then(function(result){
+    return result.json();
+}).catch(function(err){
+    console.log(err.message)
+    // logs "Failed to execute 'fetch' on 'Window': Cannot construct
+    //       a Request with a Request object that has already been used."
+});;
+```
+### Requests without Bodies (GET, HEAD)
+
+However, Request objects can be used more than once in Fetch requests that don't involve bodies(Head,Get).
+
+Notice how a Request object can be reused in multiple GET requests:
+
+```javascript
+//makes a GET request
+var request = new Request("https://jsonplaceholder.typicode.com/todos/1")
+
+//first fetch request
+fetch(request).then(function(result){ 
+       console.log(result.status) //logs 200, OK fetch response
+})
+
+//reusing request object 
+fetch(request).then(function(result){ 
+       console.log(result.status) //logs 200, OK fetch response after reusing request object
+})
+```
+
+
