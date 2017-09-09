@@ -425,3 +425,184 @@ API Reference Documentation: Text Analytics API Reference Documentation
 #### Module 3 - Fetch API   Module 3 Tutorial Lab: Text Analytics API   Tutorial Lab: Text Analytics API
 
 # Tutorial Lab: Text Analytics API
+
+To get started, create two files in the same directory:
+
+* `textAnalytics.html` - this will hold our HTML code
+* `textAnalytics.js` - this will hold our JavaScript code
+
+Also, be sure to get a Text Analytics API Key. Please read the FAQ on how to obtain a free Text Analytics API Key from Microsoft Cognitive Services on the next page.
+
+Note: If you do not wish to sign up for an API Key from Microsoft Cognitive Services you may use the following keys for the purposes of this course. The following API Keys are not guaranteed to work if too many students use up the free trial usage allowance.
+
+Face API Keys: 
+
+023f1661f6244d3e9f81501646ef9a0f
+
+17a26f2fbc9240aebfb272df98928812
+
+Text Analytics API Keys: 
+
+8e9100485bab4a7a8b3b261626e7e3c6
+
+7e3029df2246402ebd81c3b480eb813b
+
+---
+
+In Part 1 of the tutorial, we will build the following visual elements of our Text Analytics API:
+
+* a title header
+* a text area
+* a button labeled "analyze"
+* a paragraph section to hold text
+
+In `textAnalytics.html`, enter the following code to get started:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+
+        <script src="textAnalytics.js"></script> 
+    </body>
+</html>
+```
+
+Next, add the following code in the body of the HTML code to create a title header, text area, analyze button, and paragraph section:
+
+```html
+<h1>Text Analytics API Demo</h1>
+<div>
+    <h3>Enter Phrase</h3>
+    <textarea style ="height:100px;width:600px" id = "input"></textarea>
+</div>
+<div>
+    <button id ="analyseButton"> Analyse </button>
+</div>
+<div>
+    <h3>Key Phrases </h3>
+    <p id="output"> </p>
+</div>
+```
+
+Run the `textAnalytics.html` file in the browser to verify that the visual elements appear as shown below:
+
+![textAnalytics](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/1188949dffc3ebcfd9e443da26640977/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img3-5.PNG)
+
+---
+
+In Part 2 we will start editing the JavaScript code in `textAnalytics.js` to do the following:
+
+* make a Fetch request to the Text Analytics API to determine the key phrases of the input text when the analyze button is pressed
+
+To accomplish this, add the following code into `textAnalytics.js`:
+
+```javascript
+document.getElementById("analyseButton").addEventListener("click", analyze);
+
+function analyze(){
+
+
+
+}
+```
+
+The above code adds a click event handler to the analyze button.
+
+Next, create the reqBody variable inside the `analyze()` function:
+
+```javascript
+var reqBody = {
+    "documents": [
+        {
+        "language":"en",
+        "id" : 1,
+        "text": document.getElementById("input").value
+        }
+    ]
+};
+```
+
+The `reqBody` variable will be used to hold the body of the request we will be making. The variable `reqBody` is set equal to a 
+JSON object that has the following attributes:
+
+* language - 'en' (stands for english)
+* id - 1 (value is not important in this application)
+* text - the string value of the input inside the text area
+
+Next, create the myHeader variable inside the `analyze()` function:
+
+```javascript
+var myHeader =  new Headers({
+    'Content-Type': 'application/json',
+    'Ocp-Apim-Subscription-Key':'your_api_key'
+});
+```
+
+The `myHeader` variable will be used to hold the request headers of the request we will be making. The `myHeaders` variable 
+contains the following headers:
+
+* `'Content-Type' : 'application/json'`  (specifies the content type as JSON)
+* `'Ocp-Apim-Subscription-Key':'your_api_key'` (specifies the api key that will be used)
+
+Next, create the initObject variable inside the `analyze()` function:
+
+```javascript
+var initObject = {
+    method: 'POST',
+    body: JSON.stringify(reqBody),
+    headers: myHeader
+}
+```
+
+The `initObject` variable is used to hold the initialization settings of the request. The `initObject` variable has the following attributes:
+
+* `method - 'POST'` (the method is POST because we are sending a body of data with our request)
+* `body - JSON.stringify(reqBody)` (JSON.stringify is used because the attribute type must be a string)
+* `headers - myHeader` (contains the API key)
+
+Next, create the request variable inside the `analyze()` function:
+
+```javascript
+var request = new Request('https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases', initObject);
+```
+
+The `request` variable holds a Request Object that was creating using the URL endpoint of the Text Analytics API and the initialization object.
+
+Next, make the following Fetch request at the bottom of the `analyze()` function:
+
+```javascript
+fetch(request).then(function(response){
+    if(response.ok){
+        return response.json();
+    }
+    else{
+        return Promise.reject(new Error(response.statusText));
+    }
+}).then(function(response){
+    document.getElementById("output").innerHTML = "Total Key Phrases: " + response.documents[0].keyPhrases.length + "</br>" + response.documents[0].keyPhrases;
+}).catch(function(err){
+    alert(err);  
+    document.getElementById("output").innerHTML = "";
+});
+```
+
+The Fetch request returns a `Promise` that contains a Response Object. The Response Object status is first checked to see if it 
+is okay and is in the range of 200-299. If the Response has a bad status, the Promise will reject and an alert will appear with 
+the error status text. If the Response is okay, the json() method is used to extract a JSON object from the Response Object. 
+Lastly, the number of key phrases and the key phrases are taken from the JSON object and are displayed in the Key Phrases 
+section of the application.
+
+Run the `textAnalytics.html` file in the browser to verify that the application is able to analyze text to determine its key phrases:
+
+![textAnalytics](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/a6e53ff4d170f380a0f00cbe34cd84bf/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img3-6.PNG)
+
+---
+
+#### Module 3 - Fetch API   Module 3 Tutorial Lab: Text Analytics API   API Key FAQ
+
+# API Key FAQ
