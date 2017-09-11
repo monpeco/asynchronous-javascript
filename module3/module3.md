@@ -606,3 +606,95 @@ Run the `textAnalytics.html` file in the browser to verify that the application 
 #### Module 3 - Fetch API   Module 3 Tutorial Lab: Text Analytics API   API Key FAQ
 
 # API Key FAQ
+
+This is a guide on how to obtain a free Text Analytics or Face API Key from Microsoft Cognitive Services.
+
+An API Key is needed in order to use the Text Analytics API or the Face API that will be used in the tutorial lab and assignment.
+
+Here are the steps to obtain a free Text Analytics or Face API Key:
+
+1. Click the link below:
+
+https://www.microsoft.com/cognitive-services/en-us/text-analytics-api
+
+2. Click on the Get Started for Free link
+
+3. Sign in with your Microsoft Account. If you do not have one, create a free one.
+
+4. Click Send Email Verification. Wait for the email verification in your inbox and verify your account by clicking on the verification link. (May take a few minutes)
+
+5. Once verified, click the Subscribe to new Free Trials button. 
+
+6. Select the APIs that you want, agree to the terms, and hit the subscribe button.
+
+
+7. You will now be able to see all of your API Subscriptions. Click the show button to reveal the API keys.
+
+---
+
+#### Module 3 - Fetch API   Module 3 Assignment: Face API   Assignment 3 Intro Video
+
+# Assignment 3 Intro Video
+
+Missing Video
+
+---
+
+#### Module 3 - Fetch API   Module 3 Assignment: Face API   Assignment 3 Introduction
+
+# Assignment 3 Introduction
+
+The assignment for this module is to use the Face API from Microsoft Cognitive Services to determine the age and gender of face images.
+
+Before beginning this assignment, make sure you obtain a free Face API Key from Microsoft Cognitive Services. You will need to use the API key to complete the assignment.
+
+Please follow the instructions on API Key FAQ page key: API Key FAQ 
+
+Reference Documentation: [Face API Reference Documentation](https://dev.projectoxford.ai/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+
+Note: If you do not wish to sign up for an API Key from Microsoft Cognitive Services you may use the following keys for the purposes of this course. The following API Keys are not guaranteed to work if too many students use up the free trial usage allowance.
+
+Face API Keys: 
+
+023f1661f6244d3e9f81501646ef9a0f
+
+17a26f2fbc9240aebfb272df98928812
+
+Text Analytics API Keys: 
+
+8e9100485bab4a7a8b3b261626e7e3c6
+
+7e3029df2246402ebd81c3b480eb813b
+
+https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/47ec1354bad33287874cbe5f2617d0bb/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/face_full_demo.gif
+
+The user should see the following:
+
+* An application title
+* A section labeled "Enter Image URL" that includes an input field and a button labeled "Analyse".
+* A section labeled "Image" that displays the image of the provided URL
+* A section labeled "Attributes" that displays the age and gender of the image provided
+
+The user should be able to do the following:
+
+Populate the Image Section with the provided URL image by pressing the Analyse button and providing an image URL.
+Populate the Attributes Section with the age and gender of the analyzed image by pressing the Analyse button and providing an image URL. If the image does not contain a face, the attributes section should show "No Faces Detected".
+
+---
+
+#### Module 3 - Fetch API   Module 3 Assignment: Face API   Assignment 3 Submissions Guidelines
+
+# Assignment 3 Submissions Guidelines
+
+Please submit your solution to the assignment by posting your source code in the discussions forums. A link to the appropriate section of the forums can be found at the bottom of this page. In your forum post, you may post a link to a Github repository or use an online code editor such as Codepen. Your submission will be critiqued by your peers but will not count towards your overall course grade.
+
+Feedback Guidelines
+
+Please leave feedback on the assignment submissions of your peers by commenting on the following areas:
+
+User Interface - how well do the visual elements look?
+Functionality - does the application function as intended?
+Code - was the application coded efficiently?
+Overall Thoughts - any other comments
+
+---
