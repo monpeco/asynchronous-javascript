@@ -84,3 +84,75 @@ return "finished"; //return value of "finished"
 #### Module 4 - Generators   Generator Functions and Generator Objects   Creating and Iterating through a Generator Object
 
 # Creating and Iterating through a Generator Object
+
+### Creating a Generator Object
+
+A **Generator Object** is returned from calling a **Generator function**. It is important to not confuse 
+Generator Objects with Generator functions. 
+
+Notice how a **Generator Object** is created by calling a Generator function:
+
+```javascript
+function* genFunc() {
+    console.log("started");
+    yield 'a';
+    console.log("passed first yield");
+    yield;
+    console.log("passed second yield");
+    yield 123;
+    console.log("passed third yield");
+        
+    return "finished";
+}
+
+var genObject = genFunc(); //creates a generator object called genObject
+```
+
+### Iterating through a Generator Object with next()
+
+Generator Objects conform to the iterator protocol and may be iterated with the `next()` method.
+
+Generator functions are initially paused and the first call to `next()` starts the Generator function. The 
+Generator function then runs until it hits the first `yield` keyword and then pauses. Subsequent calls 
+to `next()`  will resume the Generator function until the next `yield` keyword appears.
+
+The `next()` method returns an object with two properties:
+
+* `done` - a boolean indicating whether the Generator function has processed all of the `yield` statements or has already returned. 
+* `value` - the value associated with the most recent yield statement.
+
+Notice how the `next()` method is used to iterate through all of the yield statements:
+
+
+```javascript
+var a = genObject.next(); // Object {value: 'a', done: false}
+//console.log("started");
+
+var b = genObject.next(); // Object {value: undefined, done: false}
+//console.log("passed first yield"); 
+
+var c = genObject.next(); // Object {value: 123, done: false}
+//console.log("passed second yield");
+```
+
+After all of the `yield` statements have been processed with `next()`, the following `next()` call returns an 
+object with a `value` property equal to the Generator function return value and a `done` property set to true. 
+If the `return` statement was omitted from the Generator function then the value property will be undefined. 
+After the `done` property is `true` in one of the returned objects, additional `next()` calls will return 
+objects with an `undefined` `value` property and a `true` `done` property. `Yield` statements after the `return` 
+statement are ignored.
+
+Notice how additional calls to `next()` behave:
+
+```javascript
+var d = genObject.next(); // Object {value: "finished", done: true} <-- value property takes the return value of genFunc()
+//console.log("passed third yield");
+
+var e = genObject.next(); // Object {value: undefined, done: true} <-- additional next() calls return this
+```
+
+---
+
+#### Module 4 - Generators   Generator Functions and Generator Objects   Throwing Errors Inside a Generator Function
+
+# Throwing Errors Inside a Generator Function
