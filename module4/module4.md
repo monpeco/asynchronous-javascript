@@ -156,3 +156,38 @@ var e = genObject.next(); // Object {value: undefined, done: true} <-- additiona
 #### Module 4 - Generators   Generator Functions and Generator Objects   Throwing Errors Inside a Generator Function
 
 # Throwing Errors Inside a Generator Function
+
+If an error is encountered within a Generator function, then the error will be thrown by the next() call that encounters the error. The next() call that throws the error will return an undefined value and additional yield statements after the error are ignored. Additional next() calls after the error will also return undefined values.
+
+Notice the affects of throwing an error within a Generation function:
+
+```javascript
+function* genFunc() {
+
+    yield 'a';
+    yield 'b';
+    throw new Error("error thrown by genFunc()!");
+    yield 'c';
+    yield 'd';
+        
+}
+
+var genObject = genFunc();
+
+try{
+    var a = genObject.next(); // Object {value: 'a', done: false}
+    var b = genObject.next(); // Object {value: 'b', done: false}
+    var c = genObject.next(); // undefined <-- since an uncaught error was thrown, the generator function terminated
+    //console.log("error thrown by genFunc()!") occurs
+    var d = genObject.next(); // undefined <-- other yield statements are ignored after the error
+}
+catch(e){
+  console.log(e.message);
+}
+```
+
+---
+
+#### Module 4 - Generators   Generator Functions and Generator Objects   Yielding to other Generators
+
+# Yielding to other Generators
