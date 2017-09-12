@@ -191,3 +191,110 @@ catch(e){
 #### Module 4 - Generators   Generator Functions and Generator Objects   Yielding to other Generators
 
 # Yielding to other Generators
+
+Yield* Keyword
+
+The `yield*` keyword is used to call another Generator function within a Generator function.
+
+Notice how the yield* statement is used to call genFuncA() within genFuncB():
+
+```javascript
+function* genFuncA() {
+    yield 'a';
+    yield 'b';
+    yield 'c';
+
+    return "done with genFuncA()!"
+        
+}
+
+function* genFuncB(){
+    yield 1;
+    yield* genFuncA(); // contains iterable [a,b,c]
+    yield 2;
+    yield 3;
+
+    return "done with genFuncB()!";
+}
+
+var genObject = genFuncB();
+
+var a = genObject.next(); //Object {value: 1, done: false}
+var b = genObject.next(); //Object {value: 'a', done: false}
+var c = genObject.next(); //Object {value: 'b', done: false}
+var d = genObject.next(); //Object {value: 'c', done: false}
+var e = genObject.next(); //Object {value: 2, done: false}
+var f = genObject.next(); //Object {value: 3, done: false}
+var g = genObject.next(); //Object {value: "done with genFuncB()!", done: true}
+```
+
+The `yield*` statement does not add the return value of the generator function that it calls to its 
+list of iterables. Instead, the return value may be accessed by the return value of the `yield*` statement.
+
+Notice how the `yield* genFuncA()` statement returns the return value of `genFuncA()`:
+
+
+```javascript
+function* genFuncA() {
+    yield 'a';
+    yield 'b';
+
+    return "done with genFuncA()!"
+        
+}
+
+function* genFuncB(){
+    yield 1;
+    var returnVal = yield* genFuncA(); // contains iterable list [a,b] and returns with value "done with genFuncA()!"
+    yield returnVal; // returnVal is equal to"done with genFuncA()
+    yield 2;
+
+    return "done with genFuncB()!";
+}
+
+var genObject = genFuncB();
+
+var a = genObject.next(); //Object {value: 1, done: false}
+var b = genObject.next(); //Object {value: 'a', done: false}
+var c = genObject.next(); //Object {value: 'b', done: false}
+var d = genObject.next(); //Object {value: "done with genFuncA()!", done: false}
+var e = genObject.next(); //Object {value: 2, done: false}
+var f = genObject.next(); //Object {value: "done with genFuncB()!", done: true}
+```
+
+The `yield*` statement can be used on any iterable in addition to Generator functions.
+
+Notice how the `yield*` statement is used to `yield` all of the values of in an array:
+
+
+```javascript
+function* genFunc(){
+    yield 1;
+    yield* [2,3,4]; //the array [2,3,4] is iterable
+    yield 5;
+
+}
+
+var genObject = genFunc();
+
+var a = genObject.next(); //Object {value: 1, done: false}
+var b = genObject.next(); //Object {value: 2, done: false}
+var c = genObject.next(); //Object {value: 3, done: false}
+var d = genObject.next(); //Object {value: 4, done: false}
+var e = genObject.next(); //Object {value: 5, done: false}
+var f = genObject.next(); //Object {value: undefined, done: true}
+```
+
+---
+
+#### Module 4 - Generators   Generator Functions and Generator Objects   Code Demo
+ 
+# Demo Video: Creating and Iterating through Generators
+
+https://youtu.be/1IVOjTl7ZlU
+
+---
+
+#### Module 4 - Generators   More on Generator Objects   Sending Input to Generator Functions
+
+# Sending Input to Generator Functions
