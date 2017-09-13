@@ -353,4 +353,76 @@ var z = genObject.next(w.value + x.value + y.value); //sends a value of 'abc' to
 
 #### Module 4 - Generators   More on Generator Objects   Other Methods to Iterate
 
-# Other Methods to Iterate
+# Other Methods to Iterate through Generator Objects
+
+### For...Of
+
+Notice how the `For...Of` statement is used to iterate through a Generator Object:
+
+```javascript
+function* genFunc(){
+    yield 'a';
+    yield;  
+    yield* [1,2,3];
+    yield 123;
+
+    return "finished";
+
+}
+
+for (var x of genFunc()){ //for...of statement
+    console.log(x); 
+}
+//Outputs:
+//'a'
+// undefined
+// 1
+// 2
+// 3
+// 123
+// <-- return value is not outputted
+```
+
+### Spread Operator (...)
+
+Notice how the **spread operator** is used to iterate through a Generator object:
+
+```javascript
+function* genFunc(){
+    yield 'a';
+    yield;  
+    yield* [1,2,3];
+    yield 123;
+
+    return "finished";
+
+}
+var arr = [...genFunc()]; //...spread operator
+// arr = ['a',undefined,1,2,3,123]
+```
+
+### Destructuring
+
+Notice how the **destructuring assignment** is used to iterate through a Generator object:
+
+```javascript
+function* genFunc(){
+    yield 'a';
+    yield;  
+    yield* [1,2,3];
+    yield 123;
+
+    return "finished";
+
+}
+
+var [a,b,c,d,e,f,g] = genFunc(); //destructuring assignment
+// a = 'a'
+// b = undefined
+// c = 1
+// d = 2
+// e = 3
+// f = 123
+// g = undefined <-- g is undefined because there are no more yields
+```
+
