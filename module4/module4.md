@@ -487,3 +487,13 @@ var y = genObject.throw(new Error("error thrown!")); // thrown() is called, y = 
 var z = genObject.next('abc'); // z = undefined
 ```
 
+---
+
+#### Module 4 - Generators   More on Generator Objects   Code Demo
+
+# Code Demo: Sending Input into Generators
+
+https://youtu.be/Vp0-U16ZOvc
+
+https://youtu.be/ZW6Kb-gu9Vk
+
