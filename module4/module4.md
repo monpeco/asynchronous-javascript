@@ -497,3 +497,54 @@ https://youtu.be/Vp0-U16ZOvc
 
 https://youtu.be/ZW6Kb-gu9Vk
 
+---
+
+#### Module 4 - Generators   Using Generators with Asynchronous Functions   Using Generators with Asynchronous Functions
+
+# Using Generators with Asynchronous Functions
+
+**Generator functions** work well with asynchronous functions that return 
+`Promises`. This is because **Generator functions** can yield a `Promise`, 
+process the Promise result asynchronously, and then receive the Promise 
+result back. This allows asynchronous code to be written inside 
+generator functions like normal synchronous functions. 
+
+Notice how Promises can be written in a synchronous way inside 
+Generator functions:
+
+```javascript
+function* genFunc(){ //looks synchronously written
+
+        var post1title = yield fetch("https://jsonplaceholder.typicode.com/posts/1");
+        console.log(post1title); 
+        //post1title = "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
+        var post2title = yield fetch("https://jsonplaceholder.typicode.com/posts/2");
+        console.log(post2title);
+        //post2title = "qui est esse"
+
+
+}
+
+var genObject = genFunc(); //creating generator object
+
+var yieldedObject = genObject.next(); //starting generator and returning first yielded object
+var promise = yieldedObject.value; //getting promise from value property of the yielded object
+promise.then(function(val){ //callback for then() of promise
+    return val.json(); //getting json stream from fetch response
+}).then(function(val){ //chaining another then()
+    var secondYieldedObject = genObject.next(val.title); //sending title back to generator function
+                                                         //and receiving second yielded object from generator function
+    var secondPromise = secondYieldedObject.value; //getting promise from value property of second yielded object
+    secondPromise.then(function(val){ //callback for then() of promise
+       return val.json();  //getting json stream from fetch response
+    }).then(function(val){ //chaining another then()
+      genObject.next(val.title); //sending back the second title to the generator function
+    })
+})
+```
+
+The code inside the generator function is clean and readable, however all the iterating 
+code below it is a mess. Luckily, there is a recursive method for iterating through promises 
+that will be covered on the next page.
+
+---
