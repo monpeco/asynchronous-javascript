@@ -651,3 +651,13 @@ run(gen).then(x => console.log(x))
 ```
 
 ---
+
+
+#### Module 4 - Generators   Using Generators with Asynchronous Functions   Code Demo
+
+# Code Demo: Using Generators with Asycnchronous Functions
+
+https://youtu.be/Mfq-wqFyl2s
+
+---
+
