@@ -655,9 +655,28 @@ run(gen).then(x => console.log(x))
 
 #### Module 4 - Generators   Using Generators with Asynchronous Functions   Code Demo
 
-# Code Demo: Using Generators with Asycnchronous Functions
+# Code Demo: Using Generators with Asynchronous Functions
 
 https://youtu.be/Mfq-wqFyl2s
+
+> Hello, in this video, I will be introducing the topic of generators,
+> and will be giving an overview on what will be covered in this module.
+> In short, generators are functions that can be paused and resumed. In
+> addition, generators can send output when pausing and receive input
+> when resuming. Now the reason why generators are such a big deal and
+> why you should use them is because of how well they work with
+> asynchronous functions, such as fetch. Imagine this. You have a
+> generator function, and inside it you wanna make some asynchronous
+> spec requests. Now you can make the fetch call, pause the generator,
+> wait for the fetch response to process outside of the generator, and
+> then return the fetch fulfillment value back to the generator before
+> resuming it. This allows for asynchronous code to be written inside
+> the generator synchronously, and that's what's amazing about
+> generators. In this module, I will be covering how to create a
+> generator function, how to pause and restart a generator by iterating
+> through it, and how to send output and receive inputs into a
+> generator. And lastly, I'll show you how to use generators with
+> asynchronous promises.
 
 ---
 
