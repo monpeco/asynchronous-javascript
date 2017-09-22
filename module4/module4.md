@@ -915,3 +915,61 @@ are searched. Please note that it should take a couple of seconds for the Star W
 
 ![starwars](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/ace0fb83ba749d71ad7dc05c9660f75f/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img4-2.PNG)
 
+---
+
+#### Module 4 - Generators   Module 4 Assignment: Starship Comparison   Assignment 4 Intro Video
+
+# Assignment 4 Intro Video
+
+https://youtu.be/0WhZxLZJ74E
+
+---
+
+#### Module 4 - Generators   Module 4 Assignment: Starship Comparison   Assignment 4 Introduction
+
+# Assignment 4 Introduction
+
+The assignment for this module is to use the Starwars API to create a web application that compares starships.
+
+![assignment](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/936f801096672a4f02c2b5bdbedacf02/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/starships_full_demo.gif)
+
+The user should see the following:
+
+An application description labeled "Select two Starships from the dropdown lists to compare"
+Two drop down lists full of starships
+A button labeled "Compare"
+A table that shows the attributes of the two starships being compared (name, cost, speed, cargo size, passengers)
+The user should be able to do the following:
+
+Populate the comparison table by selecting two starships from the drop down lists and pressing the "Compare" button. In each table row, the attribute with the higher value should have its cell highlighted red.
+
+### Starwars API
+
+Documentation on the Starwars API can be found here: https://swapi.co/documentation
+
+The URL endpoint of the starships can be accessed at http://swapi.co/api.starships/id 
+
+Example: http://swapi.co/api/starships/2
+
+### Starship Data
+
+The starships that should be in the dropdown lists is shown below. The number next to the starship name represents its starship id that is used in the Star Wars API.
+
+* CR90 Corvette - 2
+* V-wing - 75
+* Belbullab-22 Starfighter -74
+* Jedi Interceptor - 65
+* Star Destroyer -3
+* Trade Fedaration Cruiser - 59
+* Solar Sailer -58
+* Republic Attack Cruiser -63
+* A-wing - 28
+* B-wing -29
+* Naboo Fighter -39
+* Millenium Falcon -10
+
+---
+
+#### Module 4 - Generators   Module 4 Assignment: Starship Comparison   Assignment 4 Submission Guidelines
+
+# Assignment 4 Submission Guidelines
