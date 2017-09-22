@@ -705,3 +705,21 @@ https://youtu.be/Mfq-wqFyl2s
 #### Module 4 - Generators   Module 4 Tutorial Lab: Star Wars API   Tutorial 4 Guidelines
 
 # Tutorial 4 Guidelines
+
+The tutorial for this module is designed to teach you how to use Generator Functions with the Fetch API to Fetch character data from the Star Wars API.
+
+For a demo of the application, download the reference solution files below and run starwars.html in a browser. You can right click the links below and press Save link as... to download them.
+
+Reference Solution:
+
+[starwars.html](https://courses.edx.org/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/starwars.html)  (this demo won't work if you just click on it, you must download the files)
+
+[starwars.js](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/386b127cacc9665a5db4347fcac31267/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/starwars.js)
+
+![demo](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/180a87420e5ea8e98dfa568f8b0dc37f/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/starwars_movie_demo.gif)
+
+---
+
+#### Module 4 - Generators   Module 4 Tutorial Lab: Star Wars API   Tutorial Lab: Star Wars API
+
+# Tutorial Lab: Star Wars API
