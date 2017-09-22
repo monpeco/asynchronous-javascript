@@ -812,4 +812,106 @@ function run(genFunc){
 The `run(genFunc)` function makes yielded asynchronous functions return their fulfillment values as results to the yield 
 statement. This is incredibly useful as it allows asynchronous code to be written synchronously inside Generator functions.
 
+Next, we will create a Generator function to execute the asynchronous Fetch requests that will be made.
+
+To start, declare the `gen()` Generator function definition inside the `starwars.js` file:
+
+```javascript
+function *gen(){
+    //check if input is valid
+
+
+    //fetch the film
+
+
+    //fetch the characters
+
+
+    //display film title and characters in the film
+
+}
+```
+
+The first step to completing the `gen()` Generator function is to check if the search input is valid. The Star Wars 
+API only has data on films 1 through 7.
+
+Add the following code under the "check if input is valid" comment:
+
+```javascript
+    //check if input is valid
+    if(document.getElementById("input").value > 7 || document.getElementById("input").value < 1 ){
+        throw new Error("Invalid Input - Enter a number between 1 and 7");
+    }
+```
+
+The above code will throw an Error if the input value is not between 1 and 7.
+
+The next step is to Fetch the film JSON object from the Star Wars API server.
+
+Add the following code under the "fetch the film" comment:
+
+```javascript
+    //fetch the film
+    var filmResponse = yield fetch("http://swapi.co/api/films/" + document.getElementById("input").value);
+    var film = yield filmResponse.json();
+```
+
+In the above code, the yielded Fetch request returns a Response Object. The Response Object then has a JSON 
+extracted using the `json()` method. The film variable contains the JSON film data.
+
+The next step is to Fetch all of the character data from the Star Wars API server.
+
+Add the following code under the "fetch the characters" comment:
+
+```javascript
+    //fetch the characters
+    var characters = film.characters;
+    var characterString = "Characters: <br>";
+    for(let i = 0; i < characters.length ; i++){
+        var tempCharacterResponse = yield fetch(characters[i]);
+        var tempCharacter = yield tempCharacterResponse.json();
+        characterString += tempCharacter.name + "<br>";
+    }
+```
+
+In the above code, the characters variable is an array containing all of the character data URL endpoints. The `characterString` 
+variable is a string the holds all of the characters' names.
+
+The above code has a for loop that does the following to all of the character data URL endpoints:
+
+* Yields a Fetch request on the character data URL endpoint, which returns a Response Object
+* Extracts the character data JSON value from the Response Object
+* Adds the character name to the `characterString` variable.
+
+The next step is to display the film title and character names to the film and character sections in the application.
+
+Add the following code under the "display film title and film characters" comment:
+
+```javascript
+    //display film title and film characters
+    document.getElementById("filmsText").innerHTML = "Film: <br>" + film.title;
+    document.getElementById("peopleText").innerHTML = characterString;
+```
+
+The above code will populate the film and character sections in the application.
+
+The last step is to add a click event handler to the search button.
+
+Add the following code at the top of the `starwars.js` file:
+
+```javascript
+document.getElementById("button").addEventListener('click',function(){
+    run(gen).catch(function(err){
+        alert(err.message);
+    });
+})
+```
+The above code will add a click event handler to the search button. The click event handler will execute the `run(genFunc)` 
+method with the `gen()` Generator function as an argument. If an error is caught, an alert with a error message will be displayed.
+
+Run the `starwars.html` file in the browser to verify that the application is able to populate the film and character 
+paragraph sections when a valid film number is searched. Also verify that error alerts are displayed when invalid inputs 
+are searched. Please note that it should take a couple of seconds for the Star Wars API data to fetch.
+
+![starwars](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/ace0fb83ba749d71ad7dc05c9660f75f/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img4-2.PNG)
 
