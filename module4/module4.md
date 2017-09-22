@@ -723,3 +723,60 @@ Reference Solution:
 #### Module 4 - Generators   Module 4 Tutorial Lab: Star Wars API   Tutorial Lab: Star Wars API
 
 # Tutorial Lab: Star Wars API
+
+To get started, create two files in the same directory:
+
+* `starwars.html` - this will hold our HTML code
+* `starwars.js` - this will hold our JavaScript code
+
+Next, familiarize yourself with the documentation on the Star Wars API.
+
+Documentation on the Starwars API can be found here: https://swapi.co/documentation
+
+The URL endpoints of the films can be accessed at http://swapi.co/api/films/id 
+
+The URL endpoints of the characters can be accessed at  http://swapi.co/api/people/id 
+
+Example: http://swapi.co/api/films/1
+
+Example: http://swapi.co/api/people/1
+
+In Part 1 of the tutorial, we will build the following visual elements of our application:
+
+* header label
+* input field
+* search button
+* paragraph section for film title
+* paragraph section for the list of characters
+
+In starwars.html, enter the following code to get started:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+
+
+        <script src="starwars.js"></script> 
+    </body>
+</html>
+```
+
+The above code sets up the basic HTML structure and links the HTML to the JavaScript file in the directory.
+
+Next, in the body of the HTML, add the following code to add a header label, input field, search button, film paragraph section, and character paragraph section to the application:
+
+```html
+<h3> Enter Film Number (1-7) </h3>
+<input id = "input">
+<button id = "button">Search</button>
+<p id="filmsText">Film:<p>
+<p id="peopleText">Characters:<p>
+```
+
+Run the `starwars.html` file in the browser to verify that the visual elements appear as shown below:
+
+![start](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/04904e791d2b40f81fe241479c77efcb/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img4-1.PNG)
