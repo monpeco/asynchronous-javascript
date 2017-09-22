@@ -780,3 +780,36 @@ Next, in the body of the HTML, add the following code to add a header label, inp
 Run the `starwars.html` file in the browser to verify that the visual elements appear as shown below:
 
 ![start](https://d37djvu3ytnwxt.cloudfront.net/assets/courseware/v1/04904e791d2b40f81fe241479c77efcb/asset-v1:Microsoft+DEV234x+3T2017+type@asset+block/img4-1.PNG)
+
+In Part 2 of the tutorial, we will edit the JavaScript code in `starwars.js` to do the following:
+
+* populate the film and character paragraph sections when a film number is searched
+
+To accomplish this, we need to first create a function called `run(genFunc)` that will help us iterate through Generator functions.
+
+Add the `run(genFunc)` function definition inside the starwars.js file:
+
+```javascript
+function run(genFunc){
+    const genObject= genFunc(); //creating a generator object
+
+    function iterate(iteration){ //recursive function to iterate through promises
+        if(iteration.done) //stop iterating when done and return the final value wrapped in a promise
+            return Promise.resolve(iteration.value);
+        return Promise.resolve(iteration.value) //returns a promise with its then() and catch() methods filled
+        .then(x => iterate(genObject.next(x))) //calls recursive function on the next value to be iterated
+        .catch(x => iterate(genObject.throw(x))); //throws an error if a rejection is encountered
+    }
+
+    try {
+        return iterate(genObject.next()); //starts the recursive loop
+    } catch (ex) {
+        return Promise.reject(ex); //returns a rejected promise if an exception is caught
+    }
+}
+```
+
+The `run(genFunc)` function makes yielded asynchronous functions return their fulfillment values as results to the yield 
+statement. This is incredibly useful as it allows asynchronous code to be written synchronously inside Generator functions.
+
+
