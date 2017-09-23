@@ -973,3 +973,19 @@ The starships that should be in the dropdown lists is shown below. The number ne
 #### Module 4 - Generators   Module 4 Assignment: Starship Comparison   Assignment 4 Submission Guidelines
 
 # Assignment 4 Submission Guidelines
+
+### Submission Guidelines
+
+Please submit your solution to the assignment by posting your source code in the discussions forums. A link to the appropriate section of the forums can be found at the bottom of this page. In your forum post, you may post a link to a Github repository or use an online code editor such as Codepen. Your submission will be critiqued by your peers but will not count towards your overall course grade.
+
+### Feedback Guidelines
+
+Please leave feedback on the assignment submissions of your peers by commenting on the following areas:
+
+* User Interface - how well do the visual elements look?
+* Functionality - does the application function as intended?
+* Code - was the application coded efficiently?
+* Overall Thoughts - any other comments
+
+---
+
