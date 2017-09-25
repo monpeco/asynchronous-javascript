@@ -1,12 +1,14 @@
 function* genFunc() {
-    //console.log("started");
+    console.log("started");
     yield 'a';
-    //console.log("passed first yield");
+    
+    console.log("passed first yield");
     yield;
-    //console.log("passed second yield");
+    
+    console.log("passed second yield");
     yield 123;
-    //console.log("passed third yield");
-        
+    
+    console.log("passed third yield");
     return "finished";
 }
 
@@ -19,8 +21,10 @@ window.onload = function() {
     
     var b = genObject.next(); //passed first yield, b = undefined
     console.log("b: " + b.value + ", " + b.done);
+    
     var c = genObject.next(); //passed second yield, c = 123
     console.log("c: " + c.value + ", " + c.done);
+    
     var d = genObject.next(); //passed third yield, d = 
     console.log("d: " + d.value + ", " + d.done);
     
