@@ -299,6 +299,8 @@ https://youtu.be/1IVOjTl7ZlU
 
 # Sending Input to Generator Functions
 
+**External resource:** https://gist.github.com/ericelliott/890c20d18bcc4362048dba2dca8e67ac
+
 In addition to iterating through Generator Objects, `next()` can also be used to send values back into Generator functions. This is 
 accomplished by passing a value into the `next()` method call as an argument. The value that is passed into the `next()` method call 
 eventually becomes the return value of the most recent yield statement. Since the first `next()` call starts the Generator function, 

@@ -66,3 +66,10 @@ This course is split into four modules and will cover the following asynchronous
 
 * Final Assessment
 * Post-Course Survey
+
+
+---
+
+#### External resource:
+
+* Sending Input to Generator Functions: https://gist.github.com/ericelliott/890c20d18bcc4362048dba2dca8e67ac
