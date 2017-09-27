@@ -8,9 +8,11 @@ function* genFunc(){
 
 }
 
+/*
 for (var x of genFunc()){ //for...of statement
     console.log(x); 
 }
+*/
 
 /*Output:
 'a'
@@ -20,4 +22,12 @@ undefined
 3
 123
 <-- return value is not outputted
+*/
+
+
+var arr = [...genFunc()]; //...spread operator
+console.log(arr);     // arr = ['a',undefined,1,2,3,123]
+
+/*Output:
+["a", undefined, 1, 2, 3, 123]
 */
