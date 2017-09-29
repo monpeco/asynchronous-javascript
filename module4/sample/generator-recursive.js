@@ -36,6 +36,9 @@ function *gen(){
         console.log(string)
         //string = "abc"
 
+        var error = yield Promise.reject(Error("error message!"));
+        //error thrown here, generator function terminates
+        
         var obj = yield {id:123,name:"xyz"};
         console.log(obj)
         //obj = Object {id:123,name:"xyz"}
